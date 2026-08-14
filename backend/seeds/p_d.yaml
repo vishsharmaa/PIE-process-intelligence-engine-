@@ -1,0 +1,369 @@
+processes:
+- department: Facilities
+  industry: Commercial
+  name: Building Energy Management System Programming
+  raw_description: 'Our BMS controls HVAC, lighting, and some process loads across
+    a 350,000 sq ft manufacturing and office complex. The BMS was installed 8 years
+    ago with 1,200 control points. Programming changes (schedule adjustments, setpoint
+    changes, alarm modifications) are made by an external BMS service contractor at
+    $150/hour. On average, 4 programming requests are made per month. Response time
+    for non-emergency changes is 5-7 business days. The BMS interface is a proprietary
+    desktop application accessible only from 2 workstations. Alarm management generates
+    200-300 alarms per day, of which 80% are nuisance alarms that are ignored. No
+    fault detection and diagnostics (FDD) algorithms are implemented. Energy savings
+    from BMS optimization have not been quantified.
+
+    '
+- department: Sustainability
+  industry: Consumer Goods
+  name: Carbon Footprint Calculation for Individual Products
+  raw_description: 'Customer requests for product-level carbon footprint data are
+    increasing. Currently, we can provide only a rough facility-level allocation (total
+    emissions divided by total production units). Life Cycle Assessment (LCA) studies
+    have been completed for our top 3 products using SimaPro software and ecoinvent
+    databases, but each LCA took 6 months and $80,000 in consulting fees. For the
+    remaining 247 SKUs, no product-level carbon data exists. Manufacturing process
+    energy consumption is not tracked at the product level. Supply chain (Scope 3
+    upstream) carbon data is available from only 5% of our suppliers. Customer reporting
+    requirements vary (PCF per ISO 14067, CDP supply chain responses, custom formats).
+
+    '
+- department: Facilities
+  industry: Manufacturing
+  name: Water Usage Monitoring and Conservation
+  raw_description: 'Our facility uses 15 million gallons of water annually for process
+    cooling, boiler feedwater, cleaning, and sanitary purposes. Water is supplied
+    by the municipal utility and metered at a single main meter. There are no internal
+    sub-meters to identify consumption by department or process. Cooling tower blowdown
+    volume is estimated from chemical treatment dosing records. A water balance audit
+    performed 5 years ago identified 3 major reduction opportunities (cooling tower
+    cycles optimization, rinse water recirculation, leak repair) with estimated savings
+    of 20%. Only the leak repairs have been completed. Wastewater is discharged under
+    an NPDES permit with monthly sampling requirements for pH, BOD, TSS, and metals.
+    Sampling is performed by an external laboratory.
+
+    '
+- department: Engineering
+  industry: Manufacturing
+  name: Engineering Change Order Process Management
+  raw_description: "Engineering Change Orders (ECOs) are processed through a 5-step\
+    \ workflow: initiation, impact assessment, review board approval, implementation\
+    \ planning, and effectivity tracking. ECOs are initiated via a Word form emailed\
+    \ to the engineering change coordinator. Impact assessment requires input from\
+    \ engineering, manufacturing, quality, purchasing, and customer service \u2014\
+    \ coordinated via email with average response time of 5 business days. The Change\
+    \ Review Board meets weekly to review and approve/reject pending ECOs. Approximately\
+    \ 40 ECOs are processed per month with an average cycle time of 28 days. ECO tracking\
+    \ is done in an Access database. BOM updates in the ERP system are made manually\
+    \ after approval. Effectivity dates (at what serial number or date the change\
+    \ applies) are tracked on a spreadsheet.\n"
+- department: Engineering
+  industry: Manufacturing
+  name: CAD Model Version Control and Release Management
+  raw_description: 'Our engineering team of 25 designers uses SolidWorks for 3D CAD
+    modeling. Files are stored on a network shared drive with folder-based organization
+    (project/assembly/part). There is no formal PDM (Product Data Management) system.
+    Version control relies on filename conventions (partname_v1, partname_v2, etc.).
+    Released drawings are converted to PDF and stored in a separate "Released" folder.
+    Designers occasionally overwrite files without updating version numbers, leading
+    to confusion about which version is current. BOM extraction from SolidWorks assemblies
+    is manual (export to Excel, then manual entry into ERP). We are evaluating SolidWorks
+    PDM but have concerns about migration of existing data and workflow changes.
+
+    '
+- department: Engineering
+  industry: Automotive
+  name: DFMEA (Design Failure Mode and Effects Analysis)
+  raw_description: 'Design FMEAs are required for all new product designs per AIAG/VDA
+    FMEA Handbook methodology. FMEAs are created in Excel templates by cross-functional
+    teams (design engineer, test engineer, manufacturing engineer, quality engineer).
+    Sessions are conducted as 2-4 hour meetings over multiple weeks. Each FMEA document
+    contains 50-200 failure modes with severity, occurrence, and detection ratings.
+    Action Priority (AP) replaces the legacy RPN method per the 2019 AIAG/VDA update,
+    but some team members still reference RPN. Historical FMEAs from similar products
+    are stored in various project folders with no centralized searchable database.
+    Lessons learned from warranty and field failures are incorporated reactively when
+    remembered by experienced engineers.
+
+    '
+- department: Engineering
+  industry: Aerospace
+  name: Tolerance Stack-Up Analysis for Assemblies
+  raw_description: 'Complex assemblies with 20-50 tolerance-contributing dimensions
+    require tolerance stack-up analysis to verify fit and function. Analysis is performed
+    using a combination of worst-case and statistical (RSS) methods in Excel spreadsheets
+    created by each engineer using their own format. The analysis is typically done
+    once during initial design and rarely updated when tolerances are changed during
+    the design process. There is no standard template or linked connection to CAD
+    models. GD&T (Geometric Dimensioning and Tolerancing) stack-ups for position and
+    profile tolerances are particularly challenging and sometimes require commercial
+    software (VSA or 3DCS) but licenses are limited to 2 seats used only for high-priority
+    programs.
+
+    '
+- department: Engineering
+  industry: Consumer Electronics
+  name: New Product Introduction Process Gate Reviews
+  raw_description: 'Our NPI process follows a 5-phase gate review model: Concept,
+    Feasibility, Development, Validation, and Launch. Each phase gate has a defined
+    set of deliverables (design reviews, test reports, supplier qualifications, regulatory
+    approvals) that must be completed before advancing. Gate review meetings are attended
+    by 8-12 stakeholders from engineering, marketing, manufacturing, quality, and
+    supply chain. Deliverable status is tracked in a master Excel checklist (200+
+    line items per program). Gate review presentations are prepared in PowerPoint
+    by the program manager, taking 8-12 hours per gate. We run 6-8 NPI programs concurrently
+    with an average duration of 14 months. Schedule tracking uses Microsoft Project
+    files that are updated weekly.
+
+    '
+- department: Engineering
+  industry: Manufacturing
+  name: Prototype Build Tracking and Test Documentation
+  raw_description: 'Our prototype shop builds 50-80 prototype assemblies per year
+    for new product development. Prototype build instructions are communicated through
+    redlined drawings and verbal instructions from the design engineer to the prototype
+    technicians. Bill of materials for prototypes is maintained in a separate spreadsheet
+    from the production BOM system. Prototype parts are often sourced from different
+    suppliers than production parts, with engineering buying parts on purchase cards
+    (P-Cards) outside the normal purchasing process. Test results (dimensional, functional,
+    environmental) are documented in PowerPoint or Word reports stored in project
+    folders. There is no centralized test data repository or standardized test report
+    format.
+
+    '
+- department: Manufacturing Engineering
+  industry: Manufacturing
+  name: Design for Manufacturing Review Process
+  raw_description: "DFM (Design for Manufacturability) reviews are conducted during\
+    \ the design phase to identify potential manufacturing issues before tooling commitment.\
+    \ Reviews are performed as informal meetings between design engineers and manufacturing\
+    \ engineers, with feedback captured in email or meeting notes. There is no standardized\
+    \ DFM checklist, scoring rubric, or formal feedback mechanism. Manufacturing engineers\
+    \ estimate cost and feasibility based on experience with similar parts. Issues\
+    \ identified late in the design process (after tooling has started) have caused\
+    \ an average of $75,000 in tooling rework per year across all programs. DFM review\
+    \ participation is inconsistent \u2014 manufacturing engineering is not always\
+    \ invited early enough in the design cycle.\n"
+- department: Engineering
+  industry: Medical Devices
+  name: Material Selection and Qualification Process
+  raw_description: 'Medical device material selection requires evaluating biocompatibility
+    (per ISO 10993), mechanical properties, sterilization compatibility, and supply
+    chain availability. Material qualification involves submitting material data to
+    regulatory affairs for inclusion in the Design History File (DHF). Currently,
+    material data is collected from supplier datasheets (PDFs), tested internally
+    for key mechanical properties, and evaluated for biocompatibility through external
+    testing labs (8-12 week lead time). Material selection decisions are documented
+    in design review meeting minutes. There is no centralized material database with
+    pre-qualified materials. Each new project team starts material evaluation from
+    scratch, even for commonly used materials. Approximately 20 material qualifications
+    are performed per year.
+
+    '
+- department: Engineering
+  industry: Technology
+  name: Patent and Intellectual Property Management
+  raw_description: 'Our company holds 85 active patents and 15 pending applications
+    across 3 technology areas. Patent portfolio management is handled by outside patent
+    counsel with internal coordination by the VP of Engineering. Invention disclosures
+    are submitted by engineers using a Word template and emailed to the VP. Review
+    of invention disclosures for patentability occurs quarterly. Maintenance fee deadlines
+    for existing patents are tracked in a spreadsheet maintained by the legal assistant.
+    Prior art searches are performed by patent counsel at $2,000-5,000 per search.
+    There is no automated monitoring of competitor patent filings or freedom-to-operate
+    analysis. Patent-to-product mapping is maintained informally.
+
+    '
+- department: Engineering
+  industry: Automotive
+  name: Simulation and FEA Analysis Workflow
+  raw_description: "Finite Element Analysis (FEA) simulations are performed for structural,\
+    \ thermal, and modal analysis of new designs. Our simulation team of 3 engineers\
+    \ uses ANSYS Mechanical with 5 HPC solver licenses. Simulation requests are submitted\
+    \ via email and tracked on a shared Outlook calendar. Average turnaround for a\
+    \ simulation study is 5-7 business days. Model preparation (meshing, boundary\
+    \ conditions, material assignment) is manual and takes 40-60% of the total analysis\
+    \ time. Standard simulation templates exist for common load cases but are stored\
+    \ locally on individual engineers' workstations. Results are presented in PowerPoint\
+    \ reports with screenshots. There is no simulation data management system \u2014\
+    \ model files, results, and reports are stored in project folders with inconsistent\
+    \ naming conventions.\n"
+- department: Procurement
+  industry: Manufacturing
+  name: Purchase Requisition to PO Conversion
+  raw_description: 'Purchase requisitions are generated automatically by the MRP run
+    in SAP or manually by department managers for non-production items. The procurement
+    team of 5 buyers processes approximately 800 requisitions per month. Each requisition
+    requires: supplier selection (from approved vendor list), price verification (against
+    contract or last purchase price), approval routing (based on dollar thresholds:
+    <$1K auto-approve, $1-10K manager, $10-50K director, >$50K VP), and PO creation.
+    Average cycle time from requisition to PO is 4.2 days. Price comparison across
+    suppliers is done manually using a spreadsheet of contracted rates. Emergency
+    purchases (3% of volume) bypass normal approval routing. PO acknowledgment from
+    suppliers is requested by email and tracked inconsistently.
+
+    '
+- department: Accounts Payable
+  industry: Manufacturing
+  name: Three-Way Invoice Matching and Payment
+  raw_description: "Our AP department processes 4,500 vendor invoices per month. Three-way\
+    \ matching (PO, goods receipt, invoice) is performed manually by AP clerks in\
+    \ SAP. Match exceptions (quantity variance >5%, price variance >$50, or missing\
+    \ goods receipt) require investigation and resolution. Exception rate is 22% of\
+    \ invoices. Average invoice processing time is 8 days. Duplicate invoice detection\
+    \ is performed manually by checking vendor invoice numbers in SAP. Early payment\
+    \ discount capture rate is only 45% of available discounts due to processing delays.\
+    \ Paper invoices (30% of volume) are scanned but not OCR-processed \u2014 data\
+    \ is keyed manually. Electronic invoices arrive via email (PDF attachments) and\
+    \ EDI (20% of volume).\n"
+- department: Procurement
+  industry: Manufacturing
+  name: Strategic Sourcing and Supplier Negotiation
+  raw_description: 'Annual strategic sourcing is performed for the top 20 spend categories
+    (representing 80% of total procurement spend of $45 million). The process includes:
+    spend analysis, requirements definition, RFQ preparation and distribution, bid
+    evaluation, supplier negotiation, and contract award. Spend analysis is performed
+    by downloading 12 months of PO data from the ERP and categorizing in Excel using
+    pivot tables. RFQs are distributed via email with response tracking in a shared
+    mailbox. Bid comparison is done in custom Excel scorecards evaluating price, quality,
+    delivery, and service. Negotiation outcomes and contract terms are documented
+    in Word and stored in a contracts folder. Savings tracking is done manually by
+    comparing new contracted prices to previous prices.
+
+    '
+- department: Finance
+  industry: Manufacturing
+  name: Expense Report Processing and Policy Compliance
+  raw_description: '550 employees submit expense reports monthly (approximately 350
+    reports/month) using an Excel template. Receipts are attached as scanned images
+    or photos. Reports are submitted via email to the employee''s manager for approval,
+    then forwarded to AP for processing. AP verifies policy compliance: per diem rates,
+    mileage calculations, receipt requirements (>$25), and prohibited expenses. Policy
+    violations are found in approximately 12% of reports, requiring back-and-forth
+    with the employee. Average processing time from submission to reimbursement is
+    18 days. Corporate credit card reconciliation is performed manually by comparing
+    card statements to submitted expense reports. There is no automated duplicate
+    detection or spend analytics.
+
+    '
+- department: Finance
+  industry: Manufacturing
+  name: Capital Expenditure Request and Approval Workflow
+  raw_description: 'Capital expenditure requests (CERs) above $5,000 require formal
+    justification and multi- level approval. The CER form (Word template) includes
+    project description, business justification, cost breakdown, ROI calculation,
+    alternatives considered, and implementation timeline. Approval routing varies
+    by amount: $5-25K (plant manager), $25-100K (VP Operations), $100-500K (CFO),
+    >$500K (Board). Annual capital budget is $4.5 million across 60-80 approved projects.
+    CER tracking is managed in a master Excel spreadsheet maintained by the finance
+    controller. Project progress and actual vs budget spending is reviewed quarterly.
+    Post-implementation reviews to validate ROI assumptions are required for projects
+    over $100K but are completed only 40% of the time.
+
+    '
+- department: Finance
+  industry: Manufacturing
+  name: Accounts Receivable Aging and Collections
+  raw_description: 'Our AR portfolio consists of 450 active customer accounts with
+    total outstanding receivables of $8.5 million. Average DSO (Days Sales Outstanding)
+    is 52 days against a target of 40 days. AR aging reports are generated weekly
+    from the ERP and reviewed by the collections team (2 people). Collection activities
+    include: automated dunning letters at 30/60/90 days, phone follow-up for accounts
+    over $10,000 and 60+ days, and escalation to sales representative for strategic
+    accounts. Customer payment behavior patterns (consistently late, dispute-prone,
+    seasonal) are tracked informally by the collectors based on experience. Credit
+    limit review is triggered manually when accounts exceed their limit. Bad debt
+    write-offs averaged $120,000 per year over the last 3 years.
+
+    '
+- department: Procurement
+  industry: Manufacturing
+  name: Vendor Master Data Management and Cleanup
+  raw_description: 'Our ERP vendor master contains 4,200 vendor records, of which
+    approximately 1,800 have had no transactions in the past 3 years. Duplicate vendor
+    records exist due to: variations in vendor name entry, multiple remit-to addresses,
+    and acquisitions that merged vendor lists. A vendor master cleanup was performed
+    4 years ago but duplicates have re-accumulated. New vendor setup requires a paper
+    form with W-9 or W-8BEN, banking details for ACH payment, and insurance certificates.
+    The form is manually entered into the ERP by an AP clerk. Vendor classification
+    (commodity codes, minority/diversity status, preferred/approved/ restricted) is
+    inconsistently maintained. There is no automated duplicate detection or vendor
+    master governance process.
+
+    '
+- department: Finance
+  industry: Manufacturing
+  name: Budget Variance Reporting and Analysis
+  raw_description: 'Monthly budget variance reports are prepared for 12 cost center
+    managers comparing actual spending to the annual budget. The process involves:
+    downloading actual costs from the GL (General Ledger), mapping accounts to budget
+    line items (which don''t perfectly align with GL accounts), calculating variances,
+    and preparing a report package. Each report takes approximately 4 hours to prepare.
+    Cost center managers provide variance explanations via email for variances exceeding
+    $5,000 or 10%. Explanations are compiled into a management report by the finance
+    analyst. Forecast updates (reforecast based on YTD actuals plus expected remaining
+    spend) are done quarterly in Excel. There is no self-service access for cost center
+    managers to view real-time spending against budget.
+
+    '
+- department: Finance
+  industry: Manufacturing
+  name: Fixed Asset Tracking and Depreciation
+  raw_description: "We track 2,800 fixed assets with a gross book value of $65 million.\
+    \ Asset records are maintained in the ERP fixed asset module with attributes including:\
+    \ description, location, cost center, acquisition date, original cost, depreciation\
+    \ method, and useful life. Physical asset verification is performed annually by\
+    \ the accounting team walking the plant with a printed asset list, physically\
+    \ locating each asset, and verifying its existence and location. The verification\
+    \ process takes 3 weeks with 2 people. Asset transfers between locations or cost\
+    \ centers require a paper transfer form processed by accounting. Asset disposal\
+    \ requires written authorization and generates a gain/loss calculation. Barcode\
+    \ labels are attached to assets but are not scanned during verification \u2014\
+    \ all confirmation is visual.\n"
+- department: Legal
+  industry: Manufacturing
+  name: Contract Lifecycle Management
+  raw_description: 'We manage approximately 300 active contracts including supplier
+    agreements, customer contracts, lease agreements, service contracts, and NDAs.
+    Contracts are stored as PDF files in a folder structure on the shared drive organized
+    by contract type and counterparty. Key dates (expiration, renewal, review) are
+    tracked in an Excel register maintained by the legal assistant. Contract review
+    and approval workflow uses email routing with tracked changes in Word. Average
+    contract review cycle is 15 business days. Renewal notifications are generated
+    manually 90 days before expiration. Three contracts auto-renewed unfavorably last
+    year because the renewal deadline was missed. There is no clause library, no obligation
+    tracking, and no spend-under-contract analysis.
+
+    '
+- department: Finance
+  industry: Manufacturing
+  name: Payroll Processing and Multi-State Tax Compliance
+  raw_description: 'Bi-weekly payroll processing covers 550 employees across 3 states
+    with different tax withholding requirements. Payroll is computed by the HR/payroll
+    team using ADP Workforce Now. Inputs include: Kronos timekeeping data (imported
+    via file upload), commission calculations from a separate sales spreadsheet, bonus
+    accruals from the compensation manager, benefit deductions from the benefits administrator,
+    and garnishment orders from legal. Each payroll cycle requires 16 hours of processing
+    including data collection, import, validation, exception review, and final approval.
+    Multi-state tax nexus determination for traveling employees is assessed manually.
+    Year-end W-2 reconciliation against quarterly 941 filings requires 40 hours. Retroactive
+    pay adjustments (averaging 15 per cycle) are calculated manually in Excel before
+    entry into ADP.
+
+    '
+- department: Compliance
+  industry: Manufacturing
+  name: Regulatory Change Impact Assessment Process
+  raw_description: 'Our compliance team monitors regulatory changes from 8 federal
+    agencies (EPA, OSHA, FDA, DOT, etc.) and 3 state regulatory bodies. Monitoring
+    is performed by subscribing to Federal Register email alerts and industry association
+    newsletters. When a potentially relevant regulation is identified, the compliance
+    manager performs an impact assessment by reviewing the regulation text, identifying
+    affected operations, and circulating a summary to department heads via email for
+    comment. The assessment process takes 2-5 business days depending on complexity.
+    Tracking of regulatory changes and their implementation status is done in an Excel
+    register with 200+ line items. Compliance audit preparation involves assembling
+    evidence of compliance from multiple departments, typically requiring 2 weeks
+    of effort before each external audit.
+
+    '
