@@ -1,0 +1,42 @@
+version: "v1"
+factors:
+  data_availability:
+    direction: "+"
+    weight: 0.18
+    description: "Availability of structured, machine-readable data for the process"
+  process_repeatability:
+    direction: "+"
+    weight: 0.16
+    description: "Degree to which the process follows a consistent, repeatable pattern"
+  rule_clarity:
+    direction: "+"
+    weight: 0.14
+    description: "Clarity and completeness of the rules and decision logic"
+  volume_frequency:
+    direction: "+"
+    weight: 0.12
+    description: "Volume and frequency of process executions"
+  digital_maturity:
+    direction: "+"
+    weight: 0.10
+    description: "Current level of digital tooling and data capture"
+  error_cost_tolerance:
+    direction: "+"
+    weight: 0.10
+    description: "Tolerance of the process for errors (high = tolerant, low = critical)"
+  human_judgment_dependency:
+    direction: "-"
+    weight: 0.12
+    description: "Degree to which the process requires nuanced human judgment"
+  regulatory_safety_constraint:
+    direction: "-"
+    weight: 0.08
+    description: "Level of regulatory oversight or safety criticality"
+bands:
+  automate_threshold: 70
+  augment_threshold: 45
+override:
+  description: "If regulatory_safety_constraint==5 AND human_judgment_dependency>=4, cap band at Augment"
+  regulatory_safety_constraint_eq: 5
+  human_judgment_dependency_gte: 4
+  cap_band: "Augment"
