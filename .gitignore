@@ -9,3 +9,7 @@ dist/
 build/
 .venv/
 venv/
+.cache/
+*.db
+*.sqlite
+
