@@ -1,0 +1,336 @@
+processes:
+- department: Planning
+  industry: Consumer Goods
+  name: Demand Forecasting for Make-to-Stock Products
+  raw_description: 'We produce 250 SKUs of consumer packaged goods. Demand forecasting
+    is performed monthly by the demand planning team using a 12-month rolling forecast
+    in Excel. Forecast inputs include historical shipment data (3 years), promotional
+    calendars from the sales team, and known customer orders. Statistical forecasting
+    methods (moving average, exponential smoothing) are applied manually in Excel.
+    Forecast accuracy (measured as MAPE) averages 35% at the SKU-month level. Promotional
+    lifts are estimated by the sales team based on judgment. POS (point-of-sale) data
+    from major retailers is available but not incorporated into the forecasting process.
+
+    '
+- department: Production
+  industry: Manufacturing
+  name: CNC Machine Tool Changeover Optimization
+  raw_description: 'Our 5-axis CNC machining department performs an average of 6 changeovers
+    per machine per day across 18 machines. Average changeover time is 45 minutes,
+    with a range of 15-90 minutes depending on the job. Changeover involves fixture
+    swap, tool loading, program loading, first-piece inspection, and offset adjustments.
+    SMED (Single-Minute Exchange of Die) analysis was performed 2 years ago but improvements
+    were not sustained. Setup instructions exist as PDF documents on a shared drive.
+    Tool presetting is done offline for some jobs but not systematically. Changeover
+    time represents 18% of available production time.
+
+    '
+- department: Production
+  industry: Manufacturing
+  name: Real-Time Production Monitoring Dashboard
+  raw_description: 'Management wants real-time visibility into production status across
+    4 manufacturing cells. Currently, production counts are reported at end of shift
+    via handwritten logs. Machine status (running, idle, fault) is visible only at
+    the individual machine HMI. There is no plant-floor display showing overall production
+    progress against the daily schedule. Some machines have Ethernet-connected PLCs
+    with OPC-UA capability, while older machines have only relay outputs for running/stopped
+    status. The MES system was implemented 5 years ago but adoption is incomplete,
+    with only 40% of work centers connected.
+
+    '
+- department: Production
+  industry: Manufacturing
+  name: Rework and Scrap Reduction Analysis
+  raw_description: 'Internal scrap and rework costs totaled $1.8 million last year
+    across all production departments. Scrap is categorized into 45 reason codes but
+    analysis shows 60% of scrap is attributed to just 5 generic codes ("operator error",
+    "machine malfunction", "material defect", "tooling worn", "other"). Root cause
+    analysis is performed ad-hoc using 8D reports for customer-reported defects but
+    not systematically for internal scrap. Scrap data is collected in the ERP system
+    at the operation level. Pareto analysis is performed quarterly by the quality
+    manager in Excel. There is no real-time scrap alerting or automated correlation
+    with process parameters.
+
+    '
+- department: Planning
+  industry: Manufacturing
+  name: Multi-Plant Production Allocation
+  raw_description: "Our company operates 3 manufacturing plants producing overlapping\
+    \ product families. Customer orders are allocated to plants by the central planning\
+    \ team based on plant capacity, customer proximity, and product capability. Allocation\
+    \ decisions are made in weekly S&OP meetings using a PowerPoint capacity summary\
+    \ prepared by each plant. Transportation costs between plants and customers are\
+    \ estimated from a rate table maintained in a spreadsheet. There is no optimization\
+    \ model \u2014 allocation is based on planner judgment and plant manager preferences.\
+    \ Plants use different ERP instances (2 on SAP, 1 on Oracle), making cross-plant\
+    \ visibility challenging.\n"
+- department: Logistics
+  industry: Manufacturing
+  name: Inbound Shipment Receiving and Dock Scheduling
+  raw_description: 'Our receiving dock has 8 doors and handles 40-60 inbound deliveries
+    daily. Carriers are given a 2-hour arrival window but actual arrivals vary widely,
+    causing congestion during peak hours (8-10 AM) and idle docks in the afternoon.
+    Dock assignments are managed by a receiving supervisor using a dry-erase board.
+    ASN (Advance Shipment Notification) data is available in the ERP for 60% of shipments
+    from EDI-capable suppliers. Unloading time ranges from 15 minutes (LTL) to 3 hours
+    (full truckload with mixed pallets). Carrier wait times averaging 45 minutes have
+    resulted in detention charges of $120,000 last year.
+
+    '
+- department: Logistics
+  industry: Distribution
+  name: Outbound Shipment Consolidation and Route Planning
+  raw_description: 'We ship 200-300 orders daily from our distribution center to 1,500
+    customers across the region. Orders are consolidated into full truckloads (FTL)
+    and less-than-truckload (LTL) shipments. Route planning for our fleet of 25 delivery
+    trucks is done by the dispatch manager using a legacy routing software that was
+    last updated in 2018. Routes are planned the evening before delivery. Same-day
+    order additions (15% of volume) require manual route adjustments. We track delivery
+    GPS via a fleet management system but do not use real-time traffic data for dynamic
+    re-routing. Customer delivery windows are managed manually in a spreadsheet.
+
+    '
+- department: Supply Chain
+  industry: Electronics
+  name: Supplier Lead Time Monitoring and Risk Assessment
+  raw_description: 'We source 2,500 components from 180 suppliers across 12 countries.
+    Quoted lead times range from 2 weeks to 26 weeks for semiconductor components.
+    Actual lead times frequently deviate from quoted lead times, with 30% of orders
+    arriving late. Lead time tracking is done by comparing PO promise date to goods
+    receipt date in the ERP system, but this analysis is performed quarterly in a
+    manual report. There is no automated alerting for lead time trends or supplier
+    risk scoring. Single-source components represent 22% of our BOM and are tracked
+    on a manual critical-parts list maintained by the commodity manager.
+
+    '
+- department: Logistics
+  industry: Manufacturing
+  name: Customs Documentation and Trade Compliance
+  raw_description: 'We import raw materials from 15 countries and export finished
+    goods to 40 countries. Each shipment requires customs documentation including
+    commercial invoices, packing lists, bills of lading, certificates of origin, and
+    HS tariff classification. Documentation is prepared by a 3-person trade compliance
+    team using templates in Word and Excel. HTS codes are determined by referencing
+    a master classification spreadsheet maintained by the compliance manager. Errors
+    in classification have resulted in $85,000 in penalties over the past 2 years.
+    Free trade agreement (FTA) qualification is assessed manually per shipment. We
+    process approximately 200 import and 150 export declarations per month.
+
+    '
+- department: Supply Chain
+  industry: Manufacturing
+  name: Vendor-Managed Inventory Replenishment
+  raw_description: 'We have VMI (Vendor-Managed Inventory) agreements with 8 key suppliers
+    covering 120 SKUs of high-volume production materials. Suppliers are given weekly
+    inventory snapshots via email (Excel attachments showing on-hand quantity and
+    4-week forecast). Suppliers determine replenishment quantities and ship within
+    agreed min/max levels. Inventory data shared with suppliers is manually extracted
+    from the ERP every Monday. Three stockout events this year were caused by delayed
+    data sharing or supplier misinterpretation of the spreadsheet format. We have
+    EDI capability (856 ASN, 830 forecast) but only 2 of 8 VMI suppliers are EDI-connected.
+
+    '
+- department: Finance
+  industry: Logistics
+  name: Freight Invoice Audit and Payment Processing
+  raw_description: 'We process 3,000 freight invoices per month from 45 carriers covering
+    inbound, outbound, and interplant shipments. Each invoice is manually compared
+    against the contracted rate (tariff book or spot quote), bill of lading weight/class,
+    and accessorial charges. The accounts payable team of 2 auditors processes invoices
+    with a 12-day average cycle time. Discrepancy rate is 18% of invoices, with the
+    average overcharge being $47 per invoice. Audit findings are documented in a reconciliation
+    spreadsheet. Rate contract management is done in a shared folder with PDF copies
+    of carrier agreements. There is no systematic freight cost allocation to production
+    orders or products.
+
+    '
+- department: Customer Service
+  industry: E-Commerce
+  name: Last-Mile Delivery Performance Tracking
+  raw_description: 'We fulfill 5,000 e-commerce orders daily through 3 last-mile carriers.
+    Delivery performance is measured by on-time delivery rate (target: 95%), damage
+    rate, and customer satisfaction survey scores. Carrier performance data comes
+    from three separate carrier portals that are manually checked daily. POD (proof-of-delivery)
+    data is received via API from one carrier and via email attachment from the other
+    two. Customer complaints about delivery are logged in Zendesk but not systematically
+    correlated with carrier performance metrics. Monthly carrier scorecards are compiled
+    manually by the logistics coordinator in PowerPoint.
+
+    '
+- department: Logistics
+  industry: Manufacturing
+  name: Container Yard Management and Tracking
+  raw_description: 'Our facility maintains a container yard with capacity for 120
+    shipping containers used for inbound material storage overflow and outbound staging.
+    Container locations are tracked on a hand-drawn yard map updated by the yard coordinator.
+    Containers are moved by a single yard tractor whose driver receives instructions
+    via two-way radio. Average container dwell time is 14 days, with some containers
+    sitting for over 60 days. Demurrage and detention charges totaled $95,000 last
+    year from containers not returned to the shipping line within the free-time period.
+    We have no GPS tracking on containers within the yard.
+
+    '
+- department: Planning
+  industry: Manufacturing
+  name: Demand-Supply Balancing in Weekly S&OP
+  raw_description: "Our Sales and Operations Planning (S&OP) process runs on a monthly\
+    \ cycle with a weekly tactical review. Demand input comes from the sales team's\
+    \ forecast (Excel), while supply capacity is summarized by each plant manager\
+    \ in a separate spreadsheet. The S&OP coordinator spends 2 days each month consolidating\
+    \ inputs into a single PowerPoint deck for the executive review meeting. Gap analysis\
+    \ (demand exceeding capacity or vice versa) is performed visually by comparing\
+    \ bar charts. Scenario planning (what-if analysis) is not supported \u2014 the\
+    \ team has one plan and adjusts reactively. Inventory projections are rough estimates.\
+    \ No optimization software is used.\n"
+- department: Logistics
+  industry: Consumer Electronics
+  name: Reverse Logistics and Product Returns Processing
+  raw_description: 'We handle 800-1,200 product returns per month through our returns
+    center. Each return requires inspection, testing, classification (restock, refurbish,
+    recycle, scrap), and disposition. Currently, returns are received, placed in a
+    staging area, and inspected by a technician within 3-5 business days. Return reason
+    codes are captured from the RMA form (15 codes), but actual disposition often
+    differs from the customer-stated reason. Refurbished units re-enter inventory
+    but are tracked in a separate spreadsheet from main inventory. Credit processing
+    to the customer takes 7-10 days after inspection. No defect trending or product
+    quality feedback loop from returns data to engineering exists.
+
+    '
+- department: Warehouse
+  industry: Distribution
+  name: Warehouse Slotting Optimization
+  raw_description: 'Our 200,000 sq ft warehouse stores 12,000 SKUs across pallet rack,
+    shelving, and flow rack zones. Initial product slotting was done at warehouse
+    opening 6 years ago and has not been systematically reviewed. Fast-moving items
+    are not consistently placed in ergonomic pick zones. Picker travel distance averages
+    6.2 miles per shift. Order profiles have changed significantly (e-commerce growth
+    shifted from full-case to each-pick). We have 12 months of order history in the
+    WMS and ABC velocity classifications are updated quarterly in Excel. Pick path
+    optimization uses a basic sequential zone strategy without waveless or cluster
+    picking algorithms.
+
+    '
+- department: Warehouse
+  industry: Manufacturing
+  name: Cycle Count Program and Inventory Accuracy
+  raw_description: 'Annual physical inventory has been replaced with a perpetual cycle
+    count program. We count approximately 200 locations per day using RF scanners
+    and the WMS cycle count module. Counting priority is determined by ABC classification
+    (A items counted monthly, B quarterly, C annually). Current inventory record accuracy
+    is 91% (target: 95%). Common discrepancy causes include: receiving errors (wrong
+    location putaway), production backflush timing issues, and unauthorized material
+    moves. Adjustments are approved by the warehouse manager if variance is under
+    $500 or by the controller if over $500. Root cause analysis of discrepancies is
+    not performed systematically.
+
+    '
+- department: Warehouse
+  industry: Manufacturing
+  name: Automated Guided Vehicle Fleet Management
+  raw_description: 'We operate a fleet of 6 AGVs (Automated Guided Vehicles) that
+    transport pallets between the warehouse and 4 production lines. AGVs follow magnetic
+    tape paths with 12 pickup/dropoff stations. Traffic management at intersections
+    is handled by the AGV controller using a zone-blocking algorithm. Current fleet
+    utilization averages 55% during production hours. AGV breakdowns (primarily navigation
+    sensor failures) occur 2-3 times per week, requiring manual pallet transport.
+    Battery charging is scheduled during off-shift hours. We are evaluating whether
+    to add 2 more AGVs or optimize routing for the existing fleet. AGV telemetry data
+    (position, battery, fault codes) is logged but not analyzed.
+
+    '
+- department: Warehouse
+  industry: Pharmaceutical
+  name: Raw Material Shelf Life and FIFO Compliance
+  raw_description: 'Our pharmaceutical ingredient warehouse stores 450 raw materials,
+    of which 180 have defined shelf lives (6 months to 5 years). Materials are managed
+    on a First-In-First-Out (FIFO) basis per GMP requirements. Lot numbers and expiration
+    dates are recorded at receiving in the ERP system. FIFO picking is enforced by
+    the WMS, which directs pickers to the oldest lot. However, 8% of picking transactions
+    override the WMS-suggested location (wrong lot picked). Materials within 90 days
+    of expiration are flagged for review monthly via a manual report. Expired material
+    disposal requires QA release and generates regulatory documentation. We disposed
+    of $340,000 in expired materials last year.
+
+    '
+- department: Warehouse
+  industry: Electronics
+  name: Kitting and Assembly Material Preparation
+  raw_description: "Our PCB assembly operation requires component kits prepared for\
+    \ each work order. Kits contain 20-80 unique SMD (Surface Mount Device) components\
+    \ in tape-and-reel format, plus through-hole components. Kit preparation is performed\
+    \ by warehouse staff pulling components from designated storage locations using\
+    \ a printed pick list. Kit accuracy is 96.5% \u2014 the remaining 3.5% errors\
+    \ cause line stoppages averaging 25 minutes each. Component identification relies\
+    \ on part number labels; there is no automated vision verification of components\
+    \ in the kit. A kitting station processes 15-20 kits per shift. Component traceability\
+    \ (lot tracking) is required for aerospace and medical device customers.\n"
+- department: Warehouse
+  industry: Consumer Goods
+  name: Finished Goods Warehouse Space Planning
+  raw_description: 'Our finished goods warehouse operates at 92% capacity utilization,
+    causing occasional overflow to a rental storage facility ($18,000/month). Production
+    output varies seasonally with a 40% peak in Q3 (holiday season pre-build). Space
+    allocation is managed by the warehouse manager using a building CAD drawing and
+    yellow floor markings. Pallet dimensions vary across product lines (5 different
+    pallet footprints). There is no dynamic space allocation model that considers
+    incoming production schedule, outbound shipment schedule, and inventory aging.
+    FIFO compliance for finished goods is challenging due to space constraints forcing
+    non-optimal stacking.
+
+    '
+- department: Operations
+  industry: E-Commerce
+  name: Warehouse Pick-Pack-Ship Process Optimization
+  raw_description: 'Our fulfillment center processes 8,000 orders per day with a same-day
+    ship cutoff of 2:00 PM. The pick-pack-ship workflow: orders are batched hourly,
+    pick lists are generated by the WMS and printed, pickers walk sequential zones
+    collecting items into totes, totes are conveyed to pack stations, packers select
+    box size manually, pack, weigh, and label. Average order has 2.3 items. Pack-station
+    throughput is 45 orders/hour/packer. Error rate (wrong item, wrong quantity) is
+    0.8%. We are considering implementing voice-pick and automated box-sizing to improve
+    throughput. Shipping label generation and rate-shopping across carriers is done
+    in a multi-carrier shipping platform (ShipStation).
+
+    '
+- department: Warehouse
+  industry: Chemical
+  name: Hazardous Material Storage and Handling
+  raw_description: 'Our warehouse stores 85 different hazardous chemicals classified
+    under DOT, EPA, and OSHA regulations. Storage segregation follows compatibility
+    groups per NFPA 400. Current segregation compliance is verified by a monthly walk-through
+    by the EHS manager, who checks physical locations against a compatibility matrix
+    posted on the wall. Secondary containment requirements are tracked on a paper
+    checklist. SDS (Safety Data Sheets) are maintained in binders at each storage
+    area. Quantities and locations are in the ERP system but the ERP has no chemical
+    compatibility validation logic. We had 2 minor spill incidents last year attributed
+    to incompatible materials stored in the same containment area.
+
+    '
+- department: Inventory
+  industry: Manufacturing
+  name: Dead Stock Identification and Disposition
+  raw_description: 'A quarterly inventory review identifies dead stock (items with
+    zero consumption in the past 18 months). The review is performed by running a
+    usage report from the ERP and distributing it to department managers for disposition
+    recommendations (scrap, sell, transfer, hold). The review process takes 6 weeks
+    from report generation to final disposition. Currently $450,000 in dead stock
+    is identified, representing 7% of total inventory value. Disposition is slow because
+    engineering review is required to confirm items are no longer needed for service
+    or legacy products. There is no automated alerting when items approach dead-stock
+    status (e.g., declining consumption trend).
+
+    '
+- department: Finance
+  industry: Manufacturing
+  name: Consignment Inventory Reconciliation
+  raw_description: 'We have consignment inventory arrangements with 5 suppliers for
+    45 high-value components. Under these agreements, we take physical possession
+    of inventory but do not pay until consumption. Monthly reconciliation requires
+    comparing our ERP consumption records with the supplier''s invoiced quantities.
+    Discrepancies arise from: timing differences in consumption reporting, unit-of-measure
+    conversions, and physical count variances. Each reconciliation takes 4-6 hours
+    per supplier per month. Three suppliers provide reconciliation data via email
+    spreadsheets; two provide paper statements. There is no automated match between
+    consumption transactions and supplier billing.
+
+    '
