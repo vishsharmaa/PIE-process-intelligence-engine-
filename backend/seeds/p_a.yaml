@@ -1,0 +1,315 @@
+processes:
+- department: Maintenance
+  industry: Manufacturing
+  name: Vibration-Based Bearing Failure Prediction
+  raw_description: 'Our CNC machining center spindle bearings are monitored with triaxial
+    accelerometers sampling at 20kHz. Vibration spectra are collected every 10 minutes
+    and stored in an OSIsoft PI historian. Maintenance technicians currently review
+    weekly FFT plots manually to look for characteristic bearing defect frequencies
+    (BPFO, BPFI, BSF). When anomalies are spotted, a work order is created in SAP
+    PM. We want to automate the anomaly detection and work-order generation. Historical
+    failure records from the past 3 years are available in the CMMS with tagged root
+    causes.
+
+    '
+- department: Maintenance
+  industry: Manufacturing
+  name: Preventive Maintenance Schedule Optimization
+  raw_description: 'We run a fleet of 48 injection molding machines. Each machine
+    has a manufacturer-recommended preventive maintenance schedule (every 2000 operating
+    hours) but actual failure patterns vary significantly by machine age and mold
+    complexity. Maintenance is currently scheduled on a fixed calendar regardless
+    of machine condition. Downtime records, operating-hour counters, and part-replacement
+    logs are tracked in a Maximo CMMS. We want to shift from time-based to condition-based
+    PM intervals to reduce unnecessary maintenance while preventing unexpected breakdowns.
+
+    '
+- department: Maintenance
+  industry: Heavy Industry
+  name: Lubrication Management for Rotating Equipment
+  raw_description: 'Our plant has over 200 rotating assets (pumps, compressors, gearboxes)
+    each with specific lubrication requirements. Lubrication routes are managed on
+    paper-based checklists carried by technicians on weekly rounds. Oil analysis samples
+    are sent to an external lab with 2-week turnaround. Missed lubrication events
+    have caused three major bearing failures this year. We need a system to track
+    lube routes digitally, alert on missed tasks, and correlate oil analysis results
+    with equipment condition.
+
+    '
+- department: Maintenance
+  industry: Manufacturing
+  name: Electrical Thermography Inspection Program
+  raw_description: 'Quarterly thermal imaging inspections of electrical panels, switchgear,
+    and motor control centers are performed by a certified thermographer. Images are
+    stored as JPEG files on a shared drive with handwritten annotations. Reports are
+    created in Word and emailed to the plant manager. Anomalies (hot spots indicating
+    loose connections or overloaded circuits) require manual comparison against baseline
+    images taken during commissioning. There is no systematic database of thermal
+    findings and no trending of temperature changes over time.
+
+    '
+- department: Maintenance
+  industry: Manufacturing
+  name: Compressed Air Leak Detection and Repair
+  raw_description: 'Our compressed air system serves the entire production floor with
+    3 centrifugal compressors. Energy audits estimate 25-30% of compressed air is
+    lost to leaks. Leak surveys are conducted annually by an external contractor using
+    ultrasonic detection equipment. Identified leaks are tagged with physical labels
+    and added to a spreadsheet. Repair prioritization is ad-hoc based on technician
+    availability. We have no continuous monitoring of system pressure or flow rates
+    at the zone level to detect new leaks between surveys.
+
+    '
+- department: Maintenance
+  industry: Mining
+  name: Conveyor Belt Condition Monitoring
+  raw_description: 'We operate 12 km of conveyor belt systems transporting ore from
+    the pit to the processing plant. Belt condition is assessed through monthly visual
+    inspections by walking the belt line. Splice failures and belt rips cause 8-12
+    hours of unplanned downtime per incident, occurring roughly once per quarter.
+    Belt thickness is measured at a few fixed points using ultrasonic gauges during
+    planned shutdowns. We are considering installing belt rip detection sensors and
+    online thickness monitoring but have no existing digital sensor infrastructure
+    on the belts.
+
+    '
+- department: Facilities
+  industry: Commercial Real Estate
+  name: HVAC System Predictive Diagnostics
+  raw_description: 'Our building management system (BMS) monitors 24 rooftop HVAC
+    units with basic temperature and on/off status sensors. Energy costs for HVAC
+    represent 40% of the building''s utility expenses. Currently, HVAC units are serviced
+    on quarterly preventive schedules regardless of performance. Tenant comfort complaints
+    are logged in a helpdesk system but not correlated with HVAC performance data.
+    We have 5 years of BMS trend data stored in a Niagara Framework historian. Refrigerant
+    leak detection is manual (visual dye inspection).
+
+    '
+- department: Maintenance
+  industry: Manufacturing
+  name: Crane and Hoist Inspection Compliance
+  raw_description: 'We have 15 overhead bridge cranes rated 5-50 tons. OSHA requires
+    annual inspections by a qualified person, plus daily pre-use operator checks.
+    Inspection results are recorded on paper forms and filed in binders in the maintenance
+    office. Finding and retrieving historical inspection records for a specific crane
+    requires manual search. Load test certificates, wire rope inspection reports,
+    and brake test results must be retained for the life of the equipment. Scheduling
+    compliance is tracked on a wall-mounted whiteboard calendar.
+
+    '
+- department: Reliability Engineering
+  industry: Manufacturing
+  name: Motor Current Signature Analysis Program
+  raw_description: 'We have identified 45 critical AC induction motors (75-500 HP)
+    driving essential production equipment. Motor failures result in production losses
+    of $15,000-50,000 per hour. Currently motors are run-to-failure or replaced on
+    conservative time-based schedules. We have installed permanent current transformers
+    on 20 of these motors and are collecting current waveform data at 10kHz into a
+    dedicated server. The remaining 25 motors have no monitoring. We want to implement
+    automated MCSA to detect rotor bar defects, eccentricity, and bearing issues before
+    catastrophic failure.
+
+    '
+- department: Maintenance
+  industry: Manufacturing
+  name: Spare Parts Criticality Analysis and Stocking
+  raw_description: "Our maintenance storeroom carries approximately 8,000 SKUs of\
+    \ spare parts worth $2.3 million. Stockout events for critical spares caused 340\
+    \ hours of extended downtime last year while waiting for emergency orders. Conversely,\
+    \ 35% of inventory has not been used in over 3 years. Parts criticality is not\
+    \ formally assessed \u2014 stocking decisions are based on maintenance supervisor\
+    \ judgment and historical purchasing habits. We have consumption records in SAP\
+    \ MM and equipment BOMs in SAP PM but they are not linked for automated replenishment\
+    \ analysis.\n"
+- department: Quality
+  industry: Automotive
+  name: Visual Surface Defect Detection on Sheet Metal
+  raw_description: 'Sheet metal stampings for automotive body panels are inspected
+    for surface defects (dents, scratches, orange peel, weld spatter) by trained quality
+    inspectors under controlled lighting. Each inspector checks approximately 200
+    parts per shift. Defect rates average 3-5% but inspector-to-inspector variability
+    in detection rates ranges from 60% to 95%. Parts are classified as accept/reject/rework
+    on paper tally sheets. We have explored machine vision cameras but have not deployed
+    any automated inspection. Lighting conditions on the production floor vary throughout
+    the day and between stations.
+
+    '
+- department: Quality
+  industry: Aerospace
+  name: Statistical Process Control for CNC Machining
+  raw_description: "We machine titanium aerospace components with tolerances of \xB1\
+    0.001 inches on critical dimensions. CMM (Coordinate Measuring Machine) inspection\
+    \ is performed on every 5th part for 15 critical dimensions. Results are manually\
+    \ entered into Minitab for SPC charting (X-bar and R charts). Out-of-control signals\
+    \ require operator intervention to adjust tool offsets. The CMM inspection takes\
+    \ 20 minutes per part, creating a bottleneck. We have the ability to extract in-process\
+    \ measurements from the CNC controller (spindle load, axis positions) but do not\
+    \ currently use this data for quality prediction.\n"
+- department: Quality
+  industry: Manufacturing
+  name: Incoming Raw Material Certification Verification
+  raw_description: 'Every incoming shipment of raw material (steel, aluminum, polymers)
+    arrives with a Mill Test Report (MTR) or Certificate of Analysis (CoA). Quality
+    technicians manually verify that the chemical composition, mechanical properties,
+    and dimensional specifications on the certificate match the purchase order requirements.
+    This involves comparing 10-20 data fields across two paper documents per shipment.
+    We receive approximately 50 shipments per week. Occasional mismatches are missed
+    and caught only during downstream processing. Certificates are scanned and stored
+    as PDFs with no structured data extraction.
+
+    '
+- department: Quality
+  industry: Oil & Gas
+  name: Weld Quality Inspection Using Radiographic Testing
+  raw_description: "Pipeline weld joints require 100% radiographic testing (RT) per\
+    \ API 1104 standards. Film radiographs are developed in a darkroom and interpreted\
+    \ by ASNT Level II certified radiographers. Each radiographer reviews 30-40 films\
+    \ per shift, classifying defects (porosity, lack of fusion, undercut, slag inclusions)\
+    \ and determining accept/reject per the applicable code. Interpretation is subjective\
+    \ \u2014 inter-rater agreement studies show 85% concordance. Film storage requires\
+    \ climate-controlled archival space. We are beginning to transition to digital\
+    \ radiography (CR/DR) but the interpretation is still manual.\n"
+- department: Quality
+  industry: Aerospace
+  name: First Article Inspection Process
+  raw_description: 'First Article Inspection (FAI) per AS9102 is required for all
+    new or changed aerospace parts. The FAI package includes a full dimensional inspection
+    of all drawing characteristics (often 200+ dimensions), material certifications,
+    process certifications, and special process approvals. FAI reports are created
+    manually in Excel using a balloon-numbered drawing and hand-measured or CMM-measured
+    dimensions. A single FAI package takes 8-16 hours to compile. We complete approximately
+    25 FAIs per month. Errors in FAI documentation are the #2 cause of customer quality
+    escapes.
+
+    '
+- department: Quality
+  industry: Manufacturing
+  name: Paint and Coating Thickness Measurement
+  raw_description: 'Painted and powder-coated parts require coating thickness verification
+    using magnetic induction or eddy current gauges. Measurements are taken at 5 specified
+    locations per part and recorded on a paper inspection form. Acceptable range is
+    2.0-4.0 mils depending on the specification. Currently, one quality inspector
+    measures a sample of 10 parts per batch (batch size: 100-500 parts). Gauge calibration
+    records are maintained in a binder. Historical thickness data is not trended to
+    detect spray gun degradation or powder application drift. Measurement is quick
+    (2 minutes per part) but the sampling rate may miss systematic drift.
+
+    '
+- department: Quality
+  industry: Consumer Products
+  name: Dimensional Inspection of Plastic Injection Molded Parts
+  raw_description: 'Injection molded plastic housings have 8-12 critical dimensions
+    checked using digital calipers and custom go/no-go gauges. Inspection occurs at
+    the press every 2 hours during production runs. Data is recorded on paper check
+    sheets and later entered into a spreadsheet weekly for Cpk calculation. Process
+    capability studies are run quarterly. When dimensions trend out of specification,
+    the mold technician adjusts process parameters (barrel temperature, injection
+    pressure, cooling time) based on experience. There is no automated feedback loop
+    from measurement to process adjustment.
+
+    '
+- department: Quality Assurance
+  industry: Food & Beverage
+  name: Food Product Microbiological Testing Workflow
+  raw_description: 'Every production lot of ready-to-eat food products requires microbiological
+    testing for Salmonella, Listeria, E. coli, and total aerobic plate count before
+    release. Samples are collected from three points in the production line and sent
+    to an on-site lab. Enrichment and plating protocols follow FDA BAM methods with
+    24-72 hour incubation periods. Results are hand-written in laboratory notebooks
+    and then entered into a LIMS (Laboratory Information Management System). Product
+    hold/release decisions are made by the QA manager based on combined results. Approximately
+    15 lots per day are tested across 3 production lines.
+
+    '
+- department: Quality
+  industry: Automotive
+  name: Supplier Quality Audit and Scorecard Management
+  raw_description: 'We maintain an approved supplier list of 120 component suppliers.
+    Each supplier receives an annual quality audit scored against IATF 16949 requirements
+    using a 200-question checklist. Audit findings, corrective actions, and scores
+    are tracked in individual Excel files per supplier. Monthly supplier scorecards
+    (PPM defect rate, on-time delivery, corrective action responsiveness) are manually
+    compiled from ERP receiving inspection data, customer complaint logs, and SCAR
+    (Supplier Corrective Action Request) tracking spreadsheets. There is no automated
+    aggregation or risk-scoring algorithm.
+
+    '
+- department: Quality
+  industry: Manufacturing
+  name: Gauge Calibration Management System
+  raw_description: 'Our calibration program manages 850 measurement instruments (calipers,
+    micrometers, gauges, CMMs, force testers). Each instrument has a calibration interval
+    (30 days to 12 months) based on manufacturer recommendation and usage frequency.
+    Calibration is performed by an in-house metrology technician or sent to an accredited
+    external lab. Calibration records (as-found/as-left readings, certificates) are
+    stored in a shared folder organized by instrument ID. A master Excel spreadsheet
+    tracks due dates, but recall notifications are generated manually by checking
+    the list weekly. Overdue instruments averaged 12 per month last year due to missed
+    notifications.
+
+    '
+- department: Production
+  industry: Manufacturing
+  name: Job Shop Production Scheduling
+  raw_description: 'Our job shop receives 80-120 custom machining orders per week,
+    each with 3-15 operations across 25 different machine centers. Scheduling is done
+    by a senior planner using a large physical planning board with magnetic cards
+    representing each job. The planner considers machine availability, operator skills,
+    material availability, and customer due dates. Schedule changes occur 5-10 times
+    daily due to rush orders, machine breakdowns, and material delays. Current on-time
+    delivery rate is 72%. Job status tracking relies on operators scanning paper traveler
+    barcodes at each work center, with data entering the ERP system with 2-4 hour
+    delays.
+
+    '
+- department: Production
+  industry: Chemical
+  name: Batch Chemical Reactor Sequencing
+  raw_description: 'Our specialty chemical plant operates 8 batch reactors producing
+    35 different products. Production campaigns are scheduled in 2-week blocks. Changeover
+    between products requires CIP (Clean-In-Place) cycles of 2-8 hours depending on
+    the product sequence. Some product transitions require additional solvent rinses
+    due to cross-contamination risk. Campaign sequencing is determined by the production
+    manager using tribal knowledge of compatible product families. Reactor utilization
+    averages 65% due to suboptimal sequencing and changeover time. Batch recipes are
+    controlled by a DCS (Distributed Control System) with full parameter logging.
+
+    '
+- department: Production Engineering
+  industry: Automotive
+  name: Assembly Line Balancing for Mixed-Model Production
+  raw_description: 'Our assembly line produces 4 vehicle variants on the same line
+    at a takt time of 62 seconds. Each variant has different work content at each
+    station (ranging from 45 to 72 seconds). Line balancing is performed quarterly
+    by industrial engineers using time studies and a spreadsheet model. When a new
+    variant is introduced, rebalancing takes 2-3 weeks of study and implementation.
+    Operator utilization varies from 70% to 110% across stations depending on the
+    model mix. We track actual cycle times using andon system button presses but this
+    data is not used systematically for balance optimization.
+
+    '
+- department: Production Planning
+  industry: Manufacturing
+  name: Production Order Release and Material Staging
+  raw_description: "Production orders are released from SAP PP 3 days before the scheduled\
+    \ start date. The warehouse team picks component kits based on the BOM and stages\
+    \ them at the designated work center. Currently, 15% of production orders experience\
+    \ delays at start because one or more BOM components are unavailable at the staging\
+    \ area \u2014 either due to inventory inaccuracy, competing demand from other\
+    \ orders, or receiving delays. Material availability checks in SAP are run at\
+    \ release time but do not account for in-transit inventory or expected receipt\
+    \ dates. Production supervisors spend approximately 2 hours per shift expediting\
+    \ materials.\n"
+- department: Production
+  industry: Manufacturing
+  name: OEE Data Collection and Reporting
+  raw_description: 'Overall Equipment Effectiveness (OEE) is calculated for 12 bottleneck
+    machines. Operators manually log downtime events, speed losses, and quality rejects
+    on paper forms posted at each machine. A production analyst collects forms at
+    end of shift and enters data into Excel to calculate availability, performance,
+    and quality rates. OEE reports are published weekly. Data entry errors and inconsistent
+    downtime categorization (30+ reason codes) reduce data reliability. Current average
+    OEE is 58% against a target of 75%. Real-time OEE display is not available. Machine
+    PLCs have cycle-count and fault-code outputs that are not currently captured.
+
+    '
