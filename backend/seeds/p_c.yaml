@@ -1,0 +1,352 @@
+processes:
+- department: Safety
+  industry: Manufacturing
+  name: Lockout/Tagout Procedure Compliance Verification
+  raw_description: 'LOTO (Lockout/Tagout) procedures are required for 85 pieces of
+    equipment with hazardous energy sources. Machine-specific LOTO procedures are
+    documented on paper cards attached to each machine. Annual reviews of LOTO procedures
+    are tracked on a spreadsheet. Periodic inspections (OSHA requirement: annual per
+    procedure per authorized employee) are scheduled by the safety manager and documented
+    on paper forms. Approximately 200 LOTO inspections are required per year. Compliance
+    rate for on-time inspections was 78% last year. New employee LOTO training and
+    authorization is tracked in the HR training system but not linked to the LOTO
+    procedure inventory.
+
+    '
+- department: EHS
+  industry: Manufacturing
+  name: Environmental Emissions Monitoring and Reporting
+  raw_description: 'Our facility operates under a Title V air permit with 12 emission
+    units (boilers, paint booths, process vents). Continuous Emissions Monitoring
+    Systems (CEMS) are installed on 2 major emission units tracking NOx, SOx, and
+    CO. The remaining 10 units use periodic stack testing (annual) and emission factor
+    calculations. CEMS data is collected by the DCS and stored in 15-minute averages.
+    Regulatory reporting (quarterly excess emissions reports, annual emissions inventory)
+    is prepared by the environmental engineer by exporting CEMS data to Excel and
+    manually applying emission factors to production records. The process takes approximately
+    40 hours per quarterly report.
+
+    '
+- department: Safety
+  industry: Manufacturing
+  name: Incident Investigation and CAPA Management
+  raw_description: 'Safety incidents (injuries, near-misses, property damage) are
+    reported using a paper form submitted to the safety department within 24 hours.
+    The safety manager enters incident details into a shared Access database. Investigations
+    are conducted using a simple 5-Why methodology documented in Word. Corrective
+    actions are assigned to responsible parties with due dates, tracked in the same
+    Access database. Follow-up on corrective action completion is done via email reminders.
+    OSHA 300 log entries are made manually. There is no trending analysis of incident
+    patterns or leading indicator tracking. We had 12 recordable incidents and 45
+    near-misses reported last year.
+
+    '
+- department: Quality Assurance
+  industry: Pharmaceutical
+  name: GMP Batch Record Review and Release
+  raw_description: "Each pharmaceutical production batch generates a paper batch record\
+    \ of 40-80 pages documenting every production step, equipment used, in-process\
+    \ measurements, sampling results, deviations, and operator signatures. QA batch\
+    \ record review is performed by trained reviewers who check every entry for completeness,\
+    \ accuracy, and compliance with the master batch record. Review takes 4-8 hours\
+    \ per batch record. Approximately 100 batch records per month are reviewed. Common\
+    \ findings include: missing signatures (35%), calculation errors (12%), and incomplete\
+    \ deviation documentation (18%). Exception-based review is not used \u2014 every\
+    \ field is checked manually. Batch release cannot occur until QA review is complete.\n"
+- department: EHS
+  industry: Manufacturing
+  name: Chemical Exposure Monitoring for Worker Safety
+  raw_description: 'Industrial hygiene monitoring for chemical exposure is required
+    for 15 different chemicals used in our manufacturing processes. Personal exposure
+    monitoring (PEL/TLV compliance) is performed semi-annually using personal air
+    sampling pumps worn by operators during their shift. Area monitoring using direct-reading
+    instruments is performed quarterly. Results are documented in a lab report and
+    compared against OSHA PELs and ACGIH TLVs manually. Historical exposure data is
+    filed in employee medical records (paper). Trend analysis is not performed. Engineering
+    controls (ventilation, enclosures) are assessed qualitatively during annual industrial
+    hygiene surveys.
+
+    '
+- department: EHS
+  industry: Manufacturing
+  name: ISO 14001 Environmental Management System Audit
+  raw_description: 'Our facility maintains ISO 14001:2015 certification with surveillance
+    audits conducted annually by a third-party registrar. Internal audits are performed
+    semi-annually by trained internal auditors using a checklist based on the standard''s
+    clauses. Audit findings, observations, and opportunities for improvement are documented
+    in a Word report. Corrective actions from audit findings are tracked in an Excel
+    register with assigned owners, due dates, and evidence of closure. The environmental
+    aspects and impacts register is maintained in Excel with 150 identified aspects
+    scored using a significance matrix. Legal compliance obligations are tracked in
+    a separate spreadsheet with regulatory deadlines.
+
+    '
+- department: Safety
+  industry: Manufacturing
+  name: Machine Guarding Compliance Assessment
+  raw_description: 'We have 120 production machines requiring machine guarding per
+    OSHA 1910.212 and ANSI B11 standards. A comprehensive machine guarding assessment
+    was performed 3 years ago, identifying 45 guarding deficiencies. Of these, 38
+    have been corrected, 7 remain on a capital projects list awaiting funding. New
+    equipment purchases include guarding per the PO specification, but commissioning
+    verification of guarding compliance is inconsistent. The machine guarding inventory
+    (type of guard, interlock verification date, inspection frequency) is maintained
+    in a spreadsheet. Monthly safety walks include a machine guarding spot-check but
+    this is not a systematic, comprehensive assessment.
+
+    '
+- department: EHS
+  industry: Manufacturing
+  name: SDS Management and Chemical Inventory Tracking
+  raw_description: 'We maintain Safety Data Sheets (SDS) for approximately 350 chemical
+    products used in our facility. SDSs are stored both electronically (in a shared
+    folder organized by manufacturer) and in physical binders at point-of-use locations.
+    When new chemicals are introduced, the purchasing department is supposed to forward
+    the SDS to EHS before the chemical arrives, but this process is followed only
+    about 70% of the time. SDS updates from manufacturers are received periodically
+    and must be manually filed. Employees access SDSs primarily via the physical binders.
+    There is no centralized SDS management system with search capability, automatic
+    update tracking, or chemical inventory linkage to the ERP purchasing system.
+
+    '
+- department: Safety
+  industry: Manufacturing
+  name: Permit-to-Work System for Hot Work Operations
+  raw_description: 'Hot work (welding, cutting, brazing) outside designated welding
+    areas requires a Hot Work Permit issued by the area supervisor. The permit is
+    a triplicate paper form documenting the location, work description, fire watch
+    requirements, atmospheric testing results (if applicable), and duration. Approximately
+    25 hot work permits are issued per week. Permit duration is limited to one shift.
+    Fire watch requirements extend 60 minutes after hot work completion. Compliance
+    verification is performed by the safety department through random spot checks
+    (5-10 per week). Permit records are filed in the safety office for one year. There
+    is no digital tracking, no real-time visibility of active permits, and no systematic
+    analysis of permit volume trends or locations.
+
+    '
+- department: Safety
+  industry: Manufacturing
+  name: OSHA Recordkeeping and Annual Reporting
+  raw_description: 'OSHA 300 log entries are made by the safety manager within 7 days
+    of a recordable incident. Determination of recordability follows OSHA 1904 guidelines
+    and often requires consultation with the occupational health clinic. Data entry
+    is performed in an Excel-based 300 log template. The OSHA 300A summary is posted
+    annually from February 1 to April 30. Electronic submission via the OSHA Injury
+    Tracking Application (ITA) is completed annually by March 2. DART (Days Away,
+    Restricted, or Transferred) rate calculation is done manually. Our current DART
+    rate is 2.1 against an industry average of 3.0. Rate benchmarking against NAICS
+    code averages requires manual lookup from the BLS website.
+
+    '
+- department: HR
+  industry: Manufacturing
+  name: Operator Skill Matrix and Training Gap Analysis
+  raw_description: 'Our manufacturing floor has 180 direct labor operators across
+    6 departments. Each department maintains a skill matrix on a poster-sized laminated
+    grid showing operators versus machine/ process qualifications (green = qualified,
+    yellow = in training, red = not qualified). Matrix updates are done with dry-erase
+    markers. When operators are absent, supervisors visually scan the matrix to identify
+    qualified replacements. Training records are stored in the HR system (ADP) but
+    are not linked to the shop-floor skill matrix. Cross-training needs are identified
+    subjectively by supervisors. There is no data-driven analysis of critical skill
+    gaps or succession risk.
+
+    '
+- department: HR
+  industry: Manufacturing
+  name: Time and Attendance Compliance Monitoring
+  raw_description: '550 employees clock in and out using badge readers at 4 plant
+    entrances. Time records feed into the Kronos timekeeping system. Supervisors review
+    and approve timecards weekly. Common exceptions requiring manual review include:
+    missed punches (average 45 per week), overtime authorization verification, break
+    compliance for production workers, and shift premium eligibility. A payroll clerk
+    processes exceptions by comparing Kronos records against supervisor-approved exception
+    forms. Union contract rules specify 15 different pay categories with complex premium
+    and penalty calculations. Current exception processing takes 12 hours per weekly
+    pay cycle. Payroll errors result in approximately 20 grievances per year.
+
+    '
+- department: Safety
+  industry: Manufacturing
+  name: Employee Safety Training Record Management
+  raw_description: 'OSHA-required safety training (Hazard Communication, LOTO, Confined
+    Space, Forklift, Respiratory Protection, etc.) must be completed on initial hire
+    and refreshed annually or as required. Training records are maintained in a combination
+    of the LMS (Learning Management System) for computer-based training and paper
+    sign-in sheets for hands-on training sessions. The safety training coordinator
+    manually checks training compliance monthly by cross- referencing the employee
+    roster with training records. Compliance reports are generated by exporting LMS
+    data and manually merging with paper records in Excel. Current compliance rate
+    is 88% (target: 100%). The biggest gap is refresher training for existing employees.
+
+    '
+- department: Operations
+  industry: Manufacturing
+  name: Workforce Scheduling for Continuous Operations
+  raw_description: 'Our plant operates 24/7 with 4 shift crews rotating on a DuPont
+    schedule (12-hour shifts, 4 weeks per cycle). Each crew requires 35 operators
+    across 6 departments with specific skill requirements. Schedule creation accounts
+    for planned vacations, FMLA leaves, and training absences. Overtime assignment
+    follows seniority rules from the union contract. The scheduling process is managed
+    in Excel by the shift superintendent, taking approximately 10 hours per 4-week
+    cycle. Schedule changes due to call-offs (average 3 per day) require immediate
+    callback of off-shift personnel, managed via phone tree. There is no automated
+    scheduling or optimization tool.
+
+    '
+- department: HR
+  industry: Manufacturing
+  name: Pre-Employment Skills Assessment Automation
+  raw_description: "Manufacturing job candidates undergo a skills assessment process\
+    \ including math aptitude, mechanical reasoning, blueprint reading, and hands-on\
+    \ dexterity tests. Assessments are administered in-person at our HR office, scored\
+    \ manually using answer keys, and results entered into the applicant tracking\
+    \ system (ATS) by HR staff. The assessment process takes 2 hours per candidate\
+    \ including setup and scoring. We assess approximately 40 candidates per month.\
+    \ Test materials are paper-based with 3 different versions to prevent copying.\
+    \ Score normalization and comparison across test versions is not performed \u2014\
+    \ all versions are assumed equivalent. Assessment results are not correlated with\
+    \ on-the-job performance after hire.\n"
+- department: Production
+  industry: Manufacturing
+  name: Shop Floor Labor Allocation and Line Manning
+  raw_description: "Daily labor allocation assigns 120 operators to approximately\
+    \ 40 work centers based on the production schedule, operator qualifications, and\
+    \ absenteeism. The production supervisor makes allocation decisions at the 6:00\
+    \ AM shift start meeting using a whiteboard showing the day's schedule and available\
+    \ operators. When operators are absent or lines are rebalanced due to order changes,\
+    \ reallocation occurs throughout the shift. Each reallocation decision considers\
+    \ operator certifications (some machines require specific training), ergonomic\
+    \ rotation requirements, and union seniority rules. There is no decision support\
+    \ tool \u2014 all allocation is based on supervisor experience and institutional\
+    \ knowledge.\n"
+- department: Safety
+  industry: Manufacturing
+  name: Contractor Safety Orientation and Access Control
+  raw_description: 'External contractors working on-site must complete a safety orientation
+    before being issued a contractor badge. Orientation covers plant safety rules,
+    emergency procedures, PPE requirements, and hazard communication. Currently, orientation
+    is delivered as a 30-minute video followed by a paper quiz (10 questions, passing
+    score: 80%). Approximately 200 contractor orientations are conducted annually.
+    Contractor badges expire after 12 months. Badge issuance and expiration tracking
+    is done in a spreadsheet by the security department. There is no integration between
+    the contractor safety orientation system and the physical access control system
+    (badge readers). Contractors working in permit-required areas need additional
+    training documented on separate paper forms.
+
+    '
+- department: HR
+  industry: Manufacturing
+  name: Performance Review and Competency Evaluation
+  raw_description: "Annual performance reviews are conducted for all 550 employees\
+    \ using a paper-based evaluation form with 15 competency ratings (1-5 scale) plus\
+    \ narrative comments. Supervisors complete the form, discuss with the employee,\
+    \ and submit signed copies to HR. HR staff manually enter ratings into the HRIS\
+    \ for compensation adjustment calculations. The review process takes 6 weeks to\
+    \ complete company-wide. Calibration meetings ensure consistency across departments\
+    \ but are conducted verbally with no data visualization. Competency gap analysis\
+    \ for individual development plans is not systematic \u2014 supervisor judgment\
+    \ drives development recommendations. 360-degree feedback is not used. Historical\
+    \ rating distributions show 85% of employees receive \"Meets Expectations\" or\
+    \ higher.\n"
+- department: HR
+  industry: Manufacturing
+  name: Apprenticeship Program Tracking and Progress Monitoring
+  raw_description: 'Our 4-year maintenance apprenticeship program enrolls 8-12 apprentices
+    annually. Each apprentice must complete 8,000 hours of on-the-job training across
+    10 skill areas plus 576 hours of classroom instruction. Progress tracking includes
+    hours logged per skill area, competency assessments at each stage gate, classroom
+    grades, and mentor evaluations. All tracking is done in an Excel workbook maintained
+    by the apprenticeship coordinator. Hour verification requires cross-referencing
+    time cards with job assignments. The state apprenticeship council requires quarterly
+    progress reports in a specific format that is manually prepared. We have no automated
+    skill progression tracking or real-time visibility into apprentice competency
+    levels.
+
+    '
+- department: HR
+  industry: Manufacturing
+  name: Union Grievance Tracking and Resolution
+  raw_description: 'Our unionized workforce files approximately 60 grievances per
+    year across 4 contract sections (work rules, overtime assignment, job posting,
+    discipline). Grievances are filed on paper forms and follow a 4-step resolution
+    process (supervisor response, department manager review, HR hearing, arbitration).
+    Each step has contractually defined response timelines. Grievance tracking is
+    managed in an Access database by the labor relations specialist. Analysis of grievance
+    patterns (by supervisor, department, issue type, shift) is performed annually
+    using manual queries. Average resolution time is 35 days. Arbitration outcomes
+    and precedent-setting decisions are filed as paper records in the labor relations
+    office. There is no systematic trending or early-warning analysis.
+
+    '
+- department: Facilities
+  industry: Manufacturing
+  name: Utility Meter Data Collection and Energy Monitoring
+  raw_description: 'Our facility has 45 electrical meters (main and sub-meters), 8
+    natural gas meters, and 12 water meters. Main utility meters are read monthly
+    by the utility company. Sub-meters are read weekly by a facilities technician
+    who walks the plant and records readings on a clipboard. Data is entered into
+    a spreadsheet for tracking. Energy consumption is reported as total kWh and therms
+    per month. There is no sub-metering at the machine or production line level. Real-time
+    energy monitoring is not available. Energy KPIs (kWh per unit produced, BTU per
+    square foot) are calculated monthly. We participate in a voluntary energy reporting
+    program (EPA Energy Star for Plants) requiring annual benchmarking data submission.
+
+    '
+- department: Facilities
+  industry: Manufacturing
+  name: Solar Panel Performance Monitoring
+  raw_description: 'Our facility has a 500kW rooftop solar installation with 1,500
+    panels across 4 inverter strings. An online monitoring portal from the inverter
+    manufacturer shows string-level power output updated every 5 minutes. Panel-level
+    monitoring is not available. Performance degradation is assessed annually by comparing
+    actual vs expected output using PVsyst modeling software. Soiling losses are addressed
+    through bi-annual panel washing. We have experienced 2 inverter failures in 3
+    years, detected only when the monthly utility bill showed higher-than-expected
+    grid consumption. There is no automated alerting for underperforming strings or
+    individual panel failures. Net metering credits are tracked by the utility company;
+    we verify their calculations quarterly against our inverter data.
+
+    '
+- department: Facilities
+  industry: Manufacturing
+  name: Compressed Air System Energy Optimization
+  raw_description: 'Our compressed air system (3 x 150HP rotary screw compressors,
+    1 x 200HP centrifugal) consumes 18% of total plant electricity. Compressors are
+    managed by a sequencing controller that cycles units based on pressure demand.
+    System pressure is maintained at 110 PSI at the header; end-of-line pressure drops
+    to 85-90 PSI at distant points. An energy audit 2 years ago identified 130 air
+    leaks and recommended pressure reduction to 95 PSI, installation of flow meters,
+    and repair of heat recovery systems on 2 units. Approximately 60% of recommended
+    actions have been completed. There is no continuous monitoring of specific energy
+    consumption (kWh per 1000 cfm) or leak rate trending.
+
+    '
+- department: Sustainability
+  industry: Manufacturing
+  name: Greenhouse Gas Emissions Inventory and Reporting
+  raw_description: 'Annual GHG inventory covers Scope 1 (natural gas combustion, fleet
+    vehicles, refrigerant leaks), Scope 2 (purchased electricity), and partial Scope
+    3 (employee commuting, business travel) emissions. Calculation follows the GHG
+    Protocol Corporate Standard using emission factors from EPA and eGRID. Data collection
+    involves: monthly utility bills (manually entered), fleet fuel card reports (CSV
+    download), refrigerant purchase/disposal records (paper logs), and a voluntary
+    employee commute survey (20% response rate). The inventory takes 80 hours annually
+    to compile in Excel. Scope 3 supply chain emissions are not calculated. Our science-based
+    target commits to 30% reduction by 2030 from a 2019 baseline.
+
+    '
+- department: Sustainability
+  industry: Manufacturing
+  name: Waste Stream Characterization and Recycling Optimization
+  raw_description: 'Our facility generates 15 waste streams including metal scrap,
+    cardboard, plastic film, wood pallets, mixed municipal waste, oily rags, spent
+    coolant, paint waste, and electronic waste. Recycling rate is 62% by weight (target:
+    75%). Waste characterization audits are performed annually by sorting a sample
+    of the mixed waste stream. Waste hauling is managed through contracts with 3 waste
+    vendors. Monthly waste weights are estimated from container counts and assumed
+    fill levels. Revenue from scrap metal recycling ($180,000/year) is tracked by
+    the accounting department. Waste reduction initiatives are managed through a sustainability
+    committee that meets quarterly with no systematic project tracking.
+
+    '
