@@ -8,7 +8,7 @@ class Settings(BaseSettings):
 
     database_url: str = "postgresql+psycopg2://pie:pie@localhost:5432/pie"
     groq_api_key: str = ""
-    groq_model: str = "llama3-8b-8192"
+    groq_model: str = "llama-3.1-8b-instant"
     extraction_cache_dir: str = ".cache/extractions"
     corpus_dir: str = "app/corpus"
     embedding_model: str = "all-mpnet-base-v2"

@@ -143,6 +143,19 @@ def _call_groq(
     return response.choices[0].message.content or ""
 
 
+def _get_groq_client(settings) -> OpenAI:
+    api_key = settings.groq_api_key
+    if not api_key or api_key in ("your_groq_api_key_here", "dummy_key_for_testing", ""):
+        raise RuntimeError(
+            "GROQ_API_KEY is missing or set to placeholder in backend/.env. "
+            "Please edit backend/.env and set GROQ_API_KEY=gsk_... to run LLM extraction."
+        )
+    return OpenAI(
+        api_key=api_key,
+        base_url="https://api.groq.com/openai/v1",
+    )
+
+
 def extract_process(
     name: str,
     description: str,
@@ -163,10 +176,7 @@ def extract_process(
         logger.info(f"Extraction cache hit for key {key[:8]}…")
         return cached
 
-    client = OpenAI(
-        api_key=settings.groq_api_key,
-        base_url="https://api.groq.com/openai/v1",
-    )
+    client = _get_groq_client(settings)
 
     prompt = EXTRACTION_TEMPLATE.format(name=name, description=description)
     messages = [
@@ -241,10 +251,11 @@ def classify_intent(question: str) -> dict:
     Returns dict with 'intent' and extracted parameters.
     """
     settings = get_settings()
-    client = OpenAI(
-        api_key=settings.groq_api_key,
-        base_url="https://api.groq.com/openai/v1",
-    )
+    try:
+        client = _get_groq_client(settings)
+    except Exception as e:
+        logger.warning(f"Groq client init failed: {e}")
+        return {"intent": "unmappable"}
 
     system = (
         "You are a query router for a manufacturing process intelligence system. "
@@ -299,10 +310,11 @@ def explain_result(question: str, result_json: str) -> str:
     The LLM explains numbers it is given — it does NOT compute anything.
     """
     settings = get_settings()
-    client = OpenAI(
-        api_key=settings.groq_api_key,
-        base_url="https://api.groq.com/openai/v1",
-    )
+    try:
+        client = _get_groq_client(settings)
+    except Exception as e:
+        logger.warning(f"Groq client init failed: {e}")
+        return ""
 
     system = (
         "You are explaining pre-computed manufacturing process intelligence data to a business user. "
