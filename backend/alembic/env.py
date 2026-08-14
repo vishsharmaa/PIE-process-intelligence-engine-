@@ -10,7 +10,10 @@ load_dotenv()
 
 config = context.config
 if config.config_file_name:
-    fileConfig(config.config_file_name)
+    try:
+        fileConfig(config.config_file_name)
+    except Exception:
+        pass
 
 db_url = os.getenv("DATABASE_URL", "postgresql+psycopg2://pie:pie@localhost:5432/pie")
 config.set_main_option("sqlalchemy.url", db_url)
