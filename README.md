@@ -16,6 +16,28 @@ The Process Intelligence Engine strictly separates non-deterministic AI interpre
 
 ---
 
+## 📦 Stage 2 Submission Pack
+
+All Stage 2 evaluation artifacts are organized in the [`submission/`](submission/) directory:
+
+- **Architecture Diagrams:**
+  - [System Architecture Diagram (PDF)](submission/architecture/system-architecture.pdf) | [PNG](submission/architecture/system-architecture.png)
+  - [AI Architecture Diagram (PDF)](submission/architecture/ai-architecture.pdf) | [PNG](submission/architecture/ai-architecture.png)
+  - [Database ER Diagram (PDF)](submission/architecture/database-er-diagram.pdf) | [PNG](submission/architecture/database-er-diagram.png)
+- **Technical & API Documentation:**
+  - [Technical Architecture Document (PDF)](submission/documentation/technical-documentation.pdf) | [Markdown](submission/documentation/technical-documentation.md)
+  - [API Documentation](submission/documentation/api-documentation.md)
+- **Form Answers & Verification:**
+  - [Stage 2 Form Answers (Q16–Q56)](submission/form/stage2-answers.md) | [Plain Text](submission/form/stage2-answers.txt)
+  - [Production Verification Report](submission/deployment/production-verification.md)
+  - [Production Deployment Guide](submission/deployment/deployment-guide.md)
+  - [Video Presentation & Demo Script](submission/video/demo-script.md)
+  - [Submission Checklist](submission/SUBMISSION_CHECKLIST.md)
+  - [Final Submission Report](submission/FINAL_SUBMISSION_REPORT.md)
+
+
+---
+
 ## 🏗️ Tech Stack & Constraints
 
 - **Backend:** Python 3.9+, FastAPI, SQLAlchemy 2.0, Pydantic v2, Alembic

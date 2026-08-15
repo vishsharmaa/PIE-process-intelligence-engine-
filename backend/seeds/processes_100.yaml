@@ -1,0 +1,1369 @@
+processes:
+- department: Maintenance
+  industry: Manufacturing
+  name: Vibration-Based Bearing Failure Prediction
+  raw_description: 'Our CNC machining center spindle bearings are monitored with triaxial
+    accelerometers sampling at 20kHz. Vibration spectra are collected every 10 minutes
+    and stored in an OSIsoft PI historian. Maintenance technicians currently review
+    weekly FFT plots manually to look for characteristic bearing defect frequencies
+    (BPFO, BPFI, BSF). When anomalies are spotted, a work order is created in SAP
+    PM. We want to automate the anomaly detection and work-order generation. Historical
+    failure records from the past 3 years are available in the CMMS with tagged root
+    causes.
+
+    '
+- department: Maintenance
+  industry: Manufacturing
+  name: Preventive Maintenance Schedule Optimization
+  raw_description: 'We run a fleet of 48 injection molding machines. Each machine
+    has a manufacturer-recommended preventive maintenance schedule (every 2000 operating
+    hours) but actual failure patterns vary significantly by machine age and mold
+    complexity. Maintenance is currently scheduled on a fixed calendar regardless
+    of machine condition. Downtime records, operating-hour counters, and part-replacement
+    logs are tracked in a Maximo CMMS. We want to shift from time-based to condition-based
+    PM intervals to reduce unnecessary maintenance while preventing unexpected breakdowns.
+
+    '
+- department: Maintenance
+  industry: Heavy Industry
+  name: Lubrication Management for Rotating Equipment
+  raw_description: 'Our plant has over 200 rotating assets (pumps, compressors, gearboxes)
+    each with specific lubrication requirements. Lubrication routes are managed on
+    paper-based checklists carried by technicians on weekly rounds. Oil analysis samples
+    are sent to an external lab with 2-week turnaround. Missed lubrication events
+    have caused three major bearing failures this year. We need a system to track
+    lube routes digitally, alert on missed tasks, and correlate oil analysis results
+    with equipment condition.
+
+    '
+- department: Maintenance
+  industry: Manufacturing
+  name: Electrical Thermography Inspection Program
+  raw_description: 'Quarterly thermal imaging inspections of electrical panels, switchgear,
+    and motor control centers are performed by a certified thermographer. Images are
+    stored as JPEG files on a shared drive with handwritten annotations. Reports are
+    created in Word and emailed to the plant manager. Anomalies (hot spots indicating
+    loose connections or overloaded circuits) require manual comparison against baseline
+    images taken during commissioning. There is no systematic database of thermal
+    findings and no trending of temperature changes over time.
+
+    '
+- department: Maintenance
+  industry: Manufacturing
+  name: Compressed Air Leak Detection and Repair
+  raw_description: 'Our compressed air system serves the entire production floor with
+    3 centrifugal compressors. Energy audits estimate 25-30% of compressed air is
+    lost to leaks. Leak surveys are conducted annually by an external contractor using
+    ultrasonic detection equipment. Identified leaks are tagged with physical labels
+    and added to a spreadsheet. Repair prioritization is ad-hoc based on technician
+    availability. We have no continuous monitoring of system pressure or flow rates
+    at the zone level to detect new leaks between surveys.
+
+    '
+- department: Maintenance
+  industry: Mining
+  name: Conveyor Belt Condition Monitoring
+  raw_description: 'We operate 12 km of conveyor belt systems transporting ore from
+    the pit to the processing plant. Belt condition is assessed through monthly visual
+    inspections by walking the belt line. Splice failures and belt rips cause 8-12
+    hours of unplanned downtime per incident, occurring roughly once per quarter.
+    Belt thickness is measured at a few fixed points using ultrasonic gauges during
+    planned shutdowns. We are considering installing belt rip detection sensors and
+    online thickness monitoring but have no existing digital sensor infrastructure
+    on the belts.
+
+    '
+- department: Facilities
+  industry: Commercial Real Estate
+  name: HVAC System Predictive Diagnostics
+  raw_description: 'Our building management system (BMS) monitors 24 rooftop HVAC
+    units with basic temperature and on/off status sensors. Energy costs for HVAC
+    represent 40% of the building''s utility expenses. Currently, HVAC units are serviced
+    on quarterly preventive schedules regardless of performance. Tenant comfort complaints
+    are logged in a helpdesk system but not correlated with HVAC performance data.
+    We have 5 years of BMS trend data stored in a Niagara Framework historian. Refrigerant
+    leak detection is manual (visual dye inspection).
+
+    '
+- department: Maintenance
+  industry: Manufacturing
+  name: Crane and Hoist Inspection Compliance
+  raw_description: 'We have 15 overhead bridge cranes rated 5-50 tons. OSHA requires
+    annual inspections by a qualified person, plus daily pre-use operator checks.
+    Inspection results are recorded on paper forms and filed in binders in the maintenance
+    office. Finding and retrieving historical inspection records for a specific crane
+    requires manual search. Load test certificates, wire rope inspection reports,
+    and brake test results must be retained for the life of the equipment. Scheduling
+    compliance is tracked on a wall-mounted whiteboard calendar.
+
+    '
+- department: Reliability Engineering
+  industry: Manufacturing
+  name: Motor Current Signature Analysis Program
+  raw_description: 'We have identified 45 critical AC induction motors (75-500 HP)
+    driving essential production equipment. Motor failures result in production losses
+    of $15,000-50,000 per hour. Currently motors are run-to-failure or replaced on
+    conservative time-based schedules. We have installed permanent current transformers
+    on 20 of these motors and are collecting current waveform data at 10kHz into a
+    dedicated server. The remaining 25 motors have no monitoring. We want to implement
+    automated MCSA to detect rotor bar defects, eccentricity, and bearing issues before
+    catastrophic failure.
+
+    '
+- department: Maintenance
+  industry: Manufacturing
+  name: Spare Parts Criticality Analysis and Stocking
+  raw_description: "Our maintenance storeroom carries approximately 8,000 SKUs of\
+    \ spare parts worth $2.3 million. Stockout events for critical spares caused 340\
+    \ hours of extended downtime last year while waiting for emergency orders. Conversely,\
+    \ 35% of inventory has not been used in over 3 years. Parts criticality is not\
+    \ formally assessed \u2014 stocking decisions are based on maintenance supervisor\
+    \ judgment and historical purchasing habits. We have consumption records in SAP\
+    \ MM and equipment BOMs in SAP PM but they are not linked for automated replenishment\
+    \ analysis.\n"
+- department: Quality
+  industry: Automotive
+  name: Visual Surface Defect Detection on Sheet Metal
+  raw_description: 'Sheet metal stampings for automotive body panels are inspected
+    for surface defects (dents, scratches, orange peel, weld spatter) by trained quality
+    inspectors under controlled lighting. Each inspector checks approximately 200
+    parts per shift. Defect rates average 3-5% but inspector-to-inspector variability
+    in detection rates ranges from 60% to 95%. Parts are classified as accept/reject/rework
+    on paper tally sheets. We have explored machine vision cameras but have not deployed
+    any automated inspection. Lighting conditions on the production floor vary throughout
+    the day and between stations.
+
+    '
+- department: Quality
+  industry: Aerospace
+  name: Statistical Process Control for CNC Machining
+  raw_description: "We machine titanium aerospace components with tolerances of \xB1\
+    0.001 inches on critical dimensions. CMM (Coordinate Measuring Machine) inspection\
+    \ is performed on every 5th part for 15 critical dimensions. Results are manually\
+    \ entered into Minitab for SPC charting (X-bar and R charts). Out-of-control signals\
+    \ require operator intervention to adjust tool offsets. The CMM inspection takes\
+    \ 20 minutes per part, creating a bottleneck. We have the ability to extract in-process\
+    \ measurements from the CNC controller (spindle load, axis positions) but do not\
+    \ currently use this data for quality prediction.\n"
+- department: Quality
+  industry: Manufacturing
+  name: Incoming Raw Material Certification Verification
+  raw_description: 'Every incoming shipment of raw material (steel, aluminum, polymers)
+    arrives with a Mill Test Report (MTR) or Certificate of Analysis (CoA). Quality
+    technicians manually verify that the chemical composition, mechanical properties,
+    and dimensional specifications on the certificate match the purchase order requirements.
+    This involves comparing 10-20 data fields across two paper documents per shipment.
+    We receive approximately 50 shipments per week. Occasional mismatches are missed
+    and caught only during downstream processing. Certificates are scanned and stored
+    as PDFs with no structured data extraction.
+
+    '
+- department: Quality
+  industry: Oil & Gas
+  name: Weld Quality Inspection Using Radiographic Testing
+  raw_description: "Pipeline weld joints require 100% radiographic testing (RT) per\
+    \ API 1104 standards. Film radiographs are developed in a darkroom and interpreted\
+    \ by ASNT Level II certified radiographers. Each radiographer reviews 30-40 films\
+    \ per shift, classifying defects (porosity, lack of fusion, undercut, slag inclusions)\
+    \ and determining accept/reject per the applicable code. Interpretation is subjective\
+    \ \u2014 inter-rater agreement studies show 85% concordance. Film storage requires\
+    \ climate-controlled archival space. We are beginning to transition to digital\
+    \ radiography (CR/DR) but the interpretation is still manual.\n"
+- department: Quality
+  industry: Aerospace
+  name: First Article Inspection Process
+  raw_description: 'First Article Inspection (FAI) per AS9102 is required for all
+    new or changed aerospace parts. The FAI package includes a full dimensional inspection
+    of all drawing characteristics (often 200+ dimensions), material certifications,
+    process certifications, and special process approvals. FAI reports are created
+    manually in Excel using a balloon-numbered drawing and hand-measured or CMM-measured
+    dimensions. A single FAI package takes 8-16 hours to compile. We complete approximately
+    25 FAIs per month. Errors in FAI documentation are the #2 cause of customer quality
+    escapes.
+
+    '
+- department: Quality
+  industry: Manufacturing
+  name: Paint and Coating Thickness Measurement
+  raw_description: 'Painted and powder-coated parts require coating thickness verification
+    using magnetic induction or eddy current gauges. Measurements are taken at 5 specified
+    locations per part and recorded on a paper inspection form. Acceptable range is
+    2.0-4.0 mils depending on the specification. Currently, one quality inspector
+    measures a sample of 10 parts per batch (batch size: 100-500 parts). Gauge calibration
+    records are maintained in a binder. Historical thickness data is not trended to
+    detect spray gun degradation or powder application drift. Measurement is quick
+    (2 minutes per part) but the sampling rate may miss systematic drift.
+
+    '
+- department: Quality
+  industry: Consumer Products
+  name: Dimensional Inspection of Plastic Injection Molded Parts
+  raw_description: 'Injection molded plastic housings have 8-12 critical dimensions
+    checked using digital calipers and custom go/no-go gauges. Inspection occurs at
+    the press every 2 hours during production runs. Data is recorded on paper check
+    sheets and later entered into a spreadsheet weekly for Cpk calculation. Process
+    capability studies are run quarterly. When dimensions trend out of specification,
+    the mold technician adjusts process parameters (barrel temperature, injection
+    pressure, cooling time) based on experience. There is no automated feedback loop
+    from measurement to process adjustment.
+
+    '
+- department: Quality Assurance
+  industry: Food & Beverage
+  name: Food Product Microbiological Testing Workflow
+  raw_description: 'Every production lot of ready-to-eat food products requires microbiological
+    testing for Salmonella, Listeria, E. coli, and total aerobic plate count before
+    release. Samples are collected from three points in the production line and sent
+    to an on-site lab. Enrichment and plating protocols follow FDA BAM methods with
+    24-72 hour incubation periods. Results are hand-written in laboratory notebooks
+    and then entered into a LIMS (Laboratory Information Management System). Product
+    hold/release decisions are made by the QA manager based on combined results. Approximately
+    15 lots per day are tested across 3 production lines.
+
+    '
+- department: Quality
+  industry: Automotive
+  name: Supplier Quality Audit and Scorecard Management
+  raw_description: 'We maintain an approved supplier list of 120 component suppliers.
+    Each supplier receives an annual quality audit scored against IATF 16949 requirements
+    using a 200-question checklist. Audit findings, corrective actions, and scores
+    are tracked in individual Excel files per supplier. Monthly supplier scorecards
+    (PPM defect rate, on-time delivery, corrective action responsiveness) are manually
+    compiled from ERP receiving inspection data, customer complaint logs, and SCAR
+    (Supplier Corrective Action Request) tracking spreadsheets. There is no automated
+    aggregation or risk-scoring algorithm.
+
+    '
+- department: Quality
+  industry: Manufacturing
+  name: Gauge Calibration Management System
+  raw_description: 'Our calibration program manages 850 measurement instruments (calipers,
+    micrometers, gauges, CMMs, force testers). Each instrument has a calibration interval
+    (30 days to 12 months) based on manufacturer recommendation and usage frequency.
+    Calibration is performed by an in-house metrology technician or sent to an accredited
+    external lab. Calibration records (as-found/as-left readings, certificates) are
+    stored in a shared folder organized by instrument ID. A master Excel spreadsheet
+    tracks due dates, but recall notifications are generated manually by checking
+    the list weekly. Overdue instruments averaged 12 per month last year due to missed
+    notifications.
+
+    '
+- department: Production
+  industry: Manufacturing
+  name: Job Shop Production Scheduling
+  raw_description: 'Our job shop receives 80-120 custom machining orders per week,
+    each with 3-15 operations across 25 different machine centers. Scheduling is done
+    by a senior planner using a large physical planning board with magnetic cards
+    representing each job. The planner considers machine availability, operator skills,
+    material availability, and customer due dates. Schedule changes occur 5-10 times
+    daily due to rush orders, machine breakdowns, and material delays. Current on-time
+    delivery rate is 72%. Job status tracking relies on operators scanning paper traveler
+    barcodes at each work center, with data entering the ERP system with 2-4 hour
+    delays.
+
+    '
+- department: Production
+  industry: Chemical
+  name: Batch Chemical Reactor Sequencing
+  raw_description: 'Our specialty chemical plant operates 8 batch reactors producing
+    35 different products. Production campaigns are scheduled in 2-week blocks. Changeover
+    between products requires CIP (Clean-In-Place) cycles of 2-8 hours depending on
+    the product sequence. Some product transitions require additional solvent rinses
+    due to cross-contamination risk. Campaign sequencing is determined by the production
+    manager using tribal knowledge of compatible product families. Reactor utilization
+    averages 65% due to suboptimal sequencing and changeover time. Batch recipes are
+    controlled by a DCS (Distributed Control System) with full parameter logging.
+
+    '
+- department: Production Engineering
+  industry: Automotive
+  name: Assembly Line Balancing for Mixed-Model Production
+  raw_description: 'Our assembly line produces 4 vehicle variants on the same line
+    at a takt time of 62 seconds. Each variant has different work content at each
+    station (ranging from 45 to 72 seconds). Line balancing is performed quarterly
+    by industrial engineers using time studies and a spreadsheet model. When a new
+    variant is introduced, rebalancing takes 2-3 weeks of study and implementation.
+    Operator utilization varies from 70% to 110% across stations depending on the
+    model mix. We track actual cycle times using andon system button presses but this
+    data is not used systematically for balance optimization.
+
+    '
+- department: Production Planning
+  industry: Manufacturing
+  name: Production Order Release and Material Staging
+  raw_description: "Production orders are released from SAP PP 3 days before the scheduled\
+    \ start date. The warehouse team picks component kits based on the BOM and stages\
+    \ them at the designated work center. Currently, 15% of production orders experience\
+    \ delays at start because one or more BOM components are unavailable at the staging\
+    \ area \u2014 either due to inventory inaccuracy, competing demand from other\
+    \ orders, or receiving delays. Material availability checks in SAP are run at\
+    \ release time but do not account for in-transit inventory or expected receipt\
+    \ dates. Production supervisors spend approximately 2 hours per shift expediting\
+    \ materials.\n"
+- department: Production
+  industry: Manufacturing
+  name: OEE Data Collection and Reporting
+  raw_description: 'Overall Equipment Effectiveness (OEE) is calculated for 12 bottleneck
+    machines. Operators manually log downtime events, speed losses, and quality rejects
+    on paper forms posted at each machine. A production analyst collects forms at
+    end of shift and enters data into Excel to calculate availability, performance,
+    and quality rates. OEE reports are published weekly. Data entry errors and inconsistent
+    downtime categorization (30+ reason codes) reduce data reliability. Current average
+    OEE is 58% against a target of 75%. Real-time OEE display is not available. Machine
+    PLCs have cycle-count and fault-code outputs that are not currently captured.
+
+    '
+- department: Planning
+  industry: Consumer Goods
+  name: Demand Forecasting for Make-to-Stock Products
+  raw_description: 'We produce 250 SKUs of consumer packaged goods. Demand forecasting
+    is performed monthly by the demand planning team using a 12-month rolling forecast
+    in Excel. Forecast inputs include historical shipment data (3 years), promotional
+    calendars from the sales team, and known customer orders. Statistical forecasting
+    methods (moving average, exponential smoothing) are applied manually in Excel.
+    Forecast accuracy (measured as MAPE) averages 35% at the SKU-month level. Promotional
+    lifts are estimated by the sales team based on judgment. POS (point-of-sale) data
+    from major retailers is available but not incorporated into the forecasting process.
+
+    '
+- department: Production
+  industry: Manufacturing
+  name: CNC Machine Tool Changeover Optimization
+  raw_description: 'Our 5-axis CNC machining department performs an average of 6 changeovers
+    per machine per day across 18 machines. Average changeover time is 45 minutes,
+    with a range of 15-90 minutes depending on the job. Changeover involves fixture
+    swap, tool loading, program loading, first-piece inspection, and offset adjustments.
+    SMED (Single-Minute Exchange of Die) analysis was performed 2 years ago but improvements
+    were not sustained. Setup instructions exist as PDF documents on a shared drive.
+    Tool presetting is done offline for some jobs but not systematically. Changeover
+    time represents 18% of available production time.
+
+    '
+- department: Production
+  industry: Manufacturing
+  name: Real-Time Production Monitoring Dashboard
+  raw_description: 'Management wants real-time visibility into production status across
+    4 manufacturing cells. Currently, production counts are reported at end of shift
+    via handwritten logs. Machine status (running, idle, fault) is visible only at
+    the individual machine HMI. There is no plant-floor display showing overall production
+    progress against the daily schedule. Some machines have Ethernet-connected PLCs
+    with OPC-UA capability, while older machines have only relay outputs for running/stopped
+    status. The MES system was implemented 5 years ago but adoption is incomplete,
+    with only 40% of work centers connected.
+
+    '
+- department: Production
+  industry: Manufacturing
+  name: Rework and Scrap Reduction Analysis
+  raw_description: 'Internal scrap and rework costs totaled $1.8 million last year
+    across all production departments. Scrap is categorized into 45 reason codes but
+    analysis shows 60% of scrap is attributed to just 5 generic codes ("operator error",
+    "machine malfunction", "material defect", "tooling worn", "other"). Root cause
+    analysis is performed ad-hoc using 8D reports for customer-reported defects but
+    not systematically for internal scrap. Scrap data is collected in the ERP system
+    at the operation level. Pareto analysis is performed quarterly by the quality
+    manager in Excel. There is no real-time scrap alerting or automated correlation
+    with process parameters.
+
+    '
+- department: Planning
+  industry: Manufacturing
+  name: Multi-Plant Production Allocation
+  raw_description: "Our company operates 3 manufacturing plants producing overlapping\
+    \ product families. Customer orders are allocated to plants by the central planning\
+    \ team based on plant capacity, customer proximity, and product capability. Allocation\
+    \ decisions are made in weekly S&OP meetings using a PowerPoint capacity summary\
+    \ prepared by each plant. Transportation costs between plants and customers are\
+    \ estimated from a rate table maintained in a spreadsheet. There is no optimization\
+    \ model \u2014 allocation is based on planner judgment and plant manager preferences.\
+    \ Plants use different ERP instances (2 on SAP, 1 on Oracle), making cross-plant\
+    \ visibility challenging.\n"
+- department: Logistics
+  industry: Manufacturing
+  name: Inbound Shipment Receiving and Dock Scheduling
+  raw_description: 'Our receiving dock has 8 doors and handles 40-60 inbound deliveries
+    daily. Carriers are given a 2-hour arrival window but actual arrivals vary widely,
+    causing congestion during peak hours (8-10 AM) and idle docks in the afternoon.
+    Dock assignments are managed by a receiving supervisor using a dry-erase board.
+    ASN (Advance Shipment Notification) data is available in the ERP for 60% of shipments
+    from EDI-capable suppliers. Unloading time ranges from 15 minutes (LTL) to 3 hours
+    (full truckload with mixed pallets). Carrier wait times averaging 45 minutes have
+    resulted in detention charges of $120,000 last year.
+
+    '
+- department: Logistics
+  industry: Distribution
+  name: Outbound Shipment Consolidation and Route Planning
+  raw_description: 'We ship 200-300 orders daily from our distribution center to 1,500
+    customers across the region. Orders are consolidated into full truckloads (FTL)
+    and less-than-truckload (LTL) shipments. Route planning for our fleet of 25 delivery
+    trucks is done by the dispatch manager using a legacy routing software that was
+    last updated in 2018. Routes are planned the evening before delivery. Same-day
+    order additions (15% of volume) require manual route adjustments. We track delivery
+    GPS via a fleet management system but do not use real-time traffic data for dynamic
+    re-routing. Customer delivery windows are managed manually in a spreadsheet.
+
+    '
+- department: Supply Chain
+  industry: Electronics
+  name: Supplier Lead Time Monitoring and Risk Assessment
+  raw_description: 'We source 2,500 components from 180 suppliers across 12 countries.
+    Quoted lead times range from 2 weeks to 26 weeks for semiconductor components.
+    Actual lead times frequently deviate from quoted lead times, with 30% of orders
+    arriving late. Lead time tracking is done by comparing PO promise date to goods
+    receipt date in the ERP system, but this analysis is performed quarterly in a
+    manual report. There is no automated alerting for lead time trends or supplier
+    risk scoring. Single-source components represent 22% of our BOM and are tracked
+    on a manual critical-parts list maintained by the commodity manager.
+
+    '
+- department: Logistics
+  industry: Manufacturing
+  name: Customs Documentation and Trade Compliance
+  raw_description: 'We import raw materials from 15 countries and export finished
+    goods to 40 countries. Each shipment requires customs documentation including
+    commercial invoices, packing lists, bills of lading, certificates of origin, and
+    HS tariff classification. Documentation is prepared by a 3-person trade compliance
+    team using templates in Word and Excel. HTS codes are determined by referencing
+    a master classification spreadsheet maintained by the compliance manager. Errors
+    in classification have resulted in $85,000 in penalties over the past 2 years.
+    Free trade agreement (FTA) qualification is assessed manually per shipment. We
+    process approximately 200 import and 150 export declarations per month.
+
+    '
+- department: Supply Chain
+  industry: Manufacturing
+  name: Vendor-Managed Inventory Replenishment
+  raw_description: 'We have VMI (Vendor-Managed Inventory) agreements with 8 key suppliers
+    covering 120 SKUs of high-volume production materials. Suppliers are given weekly
+    inventory snapshots via email (Excel attachments showing on-hand quantity and
+    4-week forecast). Suppliers determine replenishment quantities and ship within
+    agreed min/max levels. Inventory data shared with suppliers is manually extracted
+    from the ERP every Monday. Three stockout events this year were caused by delayed
+    data sharing or supplier misinterpretation of the spreadsheet format. We have
+    EDI capability (856 ASN, 830 forecast) but only 2 of 8 VMI suppliers are EDI-connected.
+
+    '
+- department: Finance
+  industry: Logistics
+  name: Freight Invoice Audit and Payment Processing
+  raw_description: 'We process 3,000 freight invoices per month from 45 carriers covering
+    inbound, outbound, and interplant shipments. Each invoice is manually compared
+    against the contracted rate (tariff book or spot quote), bill of lading weight/class,
+    and accessorial charges. The accounts payable team of 2 auditors processes invoices
+    with a 12-day average cycle time. Discrepancy rate is 18% of invoices, with the
+    average overcharge being $47 per invoice. Audit findings are documented in a reconciliation
+    spreadsheet. Rate contract management is done in a shared folder with PDF copies
+    of carrier agreements. There is no systematic freight cost allocation to production
+    orders or products.
+
+    '
+- department: Customer Service
+  industry: E-Commerce
+  name: Last-Mile Delivery Performance Tracking
+  raw_description: 'We fulfill 5,000 e-commerce orders daily through 3 last-mile carriers.
+    Delivery performance is measured by on-time delivery rate (target: 95%), damage
+    rate, and customer satisfaction survey scores. Carrier performance data comes
+    from three separate carrier portals that are manually checked daily. POD (proof-of-delivery)
+    data is received via API from one carrier and via email attachment from the other
+    two. Customer complaints about delivery are logged in Zendesk but not systematically
+    correlated with carrier performance metrics. Monthly carrier scorecards are compiled
+    manually by the logistics coordinator in PowerPoint.
+
+    '
+- department: Logistics
+  industry: Manufacturing
+  name: Container Yard Management and Tracking
+  raw_description: 'Our facility maintains a container yard with capacity for 120
+    shipping containers used for inbound material storage overflow and outbound staging.
+    Container locations are tracked on a hand-drawn yard map updated by the yard coordinator.
+    Containers are moved by a single yard tractor whose driver receives instructions
+    via two-way radio. Average container dwell time is 14 days, with some containers
+    sitting for over 60 days. Demurrage and detention charges totaled $95,000 last
+    year from containers not returned to the shipping line within the free-time period.
+    We have no GPS tracking on containers within the yard.
+
+    '
+- department: Planning
+  industry: Manufacturing
+  name: Demand-Supply Balancing in Weekly S&OP
+  raw_description: "Our Sales and Operations Planning (S&OP) process runs on a monthly\
+    \ cycle with a weekly tactical review. Demand input comes from the sales team's\
+    \ forecast (Excel), while supply capacity is summarized by each plant manager\
+    \ in a separate spreadsheet. The S&OP coordinator spends 2 days each month consolidating\
+    \ inputs into a single PowerPoint deck for the executive review meeting. Gap analysis\
+    \ (demand exceeding capacity or vice versa) is performed visually by comparing\
+    \ bar charts. Scenario planning (what-if analysis) is not supported \u2014 the\
+    \ team has one plan and adjusts reactively. Inventory projections are rough estimates.\
+    \ No optimization software is used.\n"
+- department: Logistics
+  industry: Consumer Electronics
+  name: Reverse Logistics and Product Returns Processing
+  raw_description: 'We handle 800-1,200 product returns per month through our returns
+    center. Each return requires inspection, testing, classification (restock, refurbish,
+    recycle, scrap), and disposition. Currently, returns are received, placed in a
+    staging area, and inspected by a technician within 3-5 business days. Return reason
+    codes are captured from the RMA form (15 codes), but actual disposition often
+    differs from the customer-stated reason. Refurbished units re-enter inventory
+    but are tracked in a separate spreadsheet from main inventory. Credit processing
+    to the customer takes 7-10 days after inspection. No defect trending or product
+    quality feedback loop from returns data to engineering exists.
+
+    '
+- department: Warehouse
+  industry: Distribution
+  name: Warehouse Slotting Optimization
+  raw_description: 'Our 200,000 sq ft warehouse stores 12,000 SKUs across pallet rack,
+    shelving, and flow rack zones. Initial product slotting was done at warehouse
+    opening 6 years ago and has not been systematically reviewed. Fast-moving items
+    are not consistently placed in ergonomic pick zones. Picker travel distance averages
+    6.2 miles per shift. Order profiles have changed significantly (e-commerce growth
+    shifted from full-case to each-pick). We have 12 months of order history in the
+    WMS and ABC velocity classifications are updated quarterly in Excel. Pick path
+    optimization uses a basic sequential zone strategy without waveless or cluster
+    picking algorithms.
+
+    '
+- department: Warehouse
+  industry: Manufacturing
+  name: Cycle Count Program and Inventory Accuracy
+  raw_description: 'Annual physical inventory has been replaced with a perpetual cycle
+    count program. We count approximately 200 locations per day using RF scanners
+    and the WMS cycle count module. Counting priority is determined by ABC classification
+    (A items counted monthly, B quarterly, C annually). Current inventory record accuracy
+    is 91% (target: 95%). Common discrepancy causes include: receiving errors (wrong
+    location putaway), production backflush timing issues, and unauthorized material
+    moves. Adjustments are approved by the warehouse manager if variance is under
+    $500 or by the controller if over $500. Root cause analysis of discrepancies is
+    not performed systematically.
+
+    '
+- department: Warehouse
+  industry: Manufacturing
+  name: Automated Guided Vehicle Fleet Management
+  raw_description: 'We operate a fleet of 6 AGVs (Automated Guided Vehicles) that
+    transport pallets between the warehouse and 4 production lines. AGVs follow magnetic
+    tape paths with 12 pickup/dropoff stations. Traffic management at intersections
+    is handled by the AGV controller using a zone-blocking algorithm. Current fleet
+    utilization averages 55% during production hours. AGV breakdowns (primarily navigation
+    sensor failures) occur 2-3 times per week, requiring manual pallet transport.
+    Battery charging is scheduled during off-shift hours. We are evaluating whether
+    to add 2 more AGVs or optimize routing for the existing fleet. AGV telemetry data
+    (position, battery, fault codes) is logged but not analyzed.
+
+    '
+- department: Warehouse
+  industry: Pharmaceutical
+  name: Raw Material Shelf Life and FIFO Compliance
+  raw_description: 'Our pharmaceutical ingredient warehouse stores 450 raw materials,
+    of which 180 have defined shelf lives (6 months to 5 years). Materials are managed
+    on a First-In-First-Out (FIFO) basis per GMP requirements. Lot numbers and expiration
+    dates are recorded at receiving in the ERP system. FIFO picking is enforced by
+    the WMS, which directs pickers to the oldest lot. However, 8% of picking transactions
+    override the WMS-suggested location (wrong lot picked). Materials within 90 days
+    of expiration are flagged for review monthly via a manual report. Expired material
+    disposal requires QA release and generates regulatory documentation. We disposed
+    of $340,000 in expired materials last year.
+
+    '
+- department: Warehouse
+  industry: Electronics
+  name: Kitting and Assembly Material Preparation
+  raw_description: "Our PCB assembly operation requires component kits prepared for\
+    \ each work order. Kits contain 20-80 unique SMD (Surface Mount Device) components\
+    \ in tape-and-reel format, plus through-hole components. Kit preparation is performed\
+    \ by warehouse staff pulling components from designated storage locations using\
+    \ a printed pick list. Kit accuracy is 96.5% \u2014 the remaining 3.5% errors\
+    \ cause line stoppages averaging 25 minutes each. Component identification relies\
+    \ on part number labels; there is no automated vision verification of components\
+    \ in the kit. A kitting station processes 15-20 kits per shift. Component traceability\
+    \ (lot tracking) is required for aerospace and medical device customers.\n"
+- department: Warehouse
+  industry: Consumer Goods
+  name: Finished Goods Warehouse Space Planning
+  raw_description: 'Our finished goods warehouse operates at 92% capacity utilization,
+    causing occasional overflow to a rental storage facility ($18,000/month). Production
+    output varies seasonally with a 40% peak in Q3 (holiday season pre-build). Space
+    allocation is managed by the warehouse manager using a building CAD drawing and
+    yellow floor markings. Pallet dimensions vary across product lines (5 different
+    pallet footprints). There is no dynamic space allocation model that considers
+    incoming production schedule, outbound shipment schedule, and inventory aging.
+    FIFO compliance for finished goods is challenging due to space constraints forcing
+    non-optimal stacking.
+
+    '
+- department: Operations
+  industry: E-Commerce
+  name: Warehouse Pick-Pack-Ship Process Optimization
+  raw_description: 'Our fulfillment center processes 8,000 orders per day with a same-day
+    ship cutoff of 2:00 PM. The pick-pack-ship workflow: orders are batched hourly,
+    pick lists are generated by the WMS and printed, pickers walk sequential zones
+    collecting items into totes, totes are conveyed to pack stations, packers select
+    box size manually, pack, weigh, and label. Average order has 2.3 items. Pack-station
+    throughput is 45 orders/hour/packer. Error rate (wrong item, wrong quantity) is
+    0.8%. We are considering implementing voice-pick and automated box-sizing to improve
+    throughput. Shipping label generation and rate-shopping across carriers is done
+    in a multi-carrier shipping platform (ShipStation).
+
+    '
+- department: Warehouse
+  industry: Chemical
+  name: Hazardous Material Storage and Handling
+  raw_description: 'Our warehouse stores 85 different hazardous chemicals classified
+    under DOT, EPA, and OSHA regulations. Storage segregation follows compatibility
+    groups per NFPA 400. Current segregation compliance is verified by a monthly walk-through
+    by the EHS manager, who checks physical locations against a compatibility matrix
+    posted on the wall. Secondary containment requirements are tracked on a paper
+    checklist. SDS (Safety Data Sheets) are maintained in binders at each storage
+    area. Quantities and locations are in the ERP system but the ERP has no chemical
+    compatibility validation logic. We had 2 minor spill incidents last year attributed
+    to incompatible materials stored in the same containment area.
+
+    '
+- department: Inventory
+  industry: Manufacturing
+  name: Dead Stock Identification and Disposition
+  raw_description: 'A quarterly inventory review identifies dead stock (items with
+    zero consumption in the past 18 months). The review is performed by running a
+    usage report from the ERP and distributing it to department managers for disposition
+    recommendations (scrap, sell, transfer, hold). The review process takes 6 weeks
+    from report generation to final disposition. Currently $450,000 in dead stock
+    is identified, representing 7% of total inventory value. Disposition is slow because
+    engineering review is required to confirm items are no longer needed for service
+    or legacy products. There is no automated alerting when items approach dead-stock
+    status (e.g., declining consumption trend).
+
+    '
+- department: Finance
+  industry: Manufacturing
+  name: Consignment Inventory Reconciliation
+  raw_description: 'We have consignment inventory arrangements with 5 suppliers for
+    45 high-value components. Under these agreements, we take physical possession
+    of inventory but do not pay until consumption. Monthly reconciliation requires
+    comparing our ERP consumption records with the supplier''s invoiced quantities.
+    Discrepancies arise from: timing differences in consumption reporting, unit-of-measure
+    conversions, and physical count variances. Each reconciliation takes 4-6 hours
+    per supplier per month. Three suppliers provide reconciliation data via email
+    spreadsheets; two provide paper statements. There is no automated match between
+    consumption transactions and supplier billing.
+
+    '
+- department: Safety
+  industry: Manufacturing
+  name: Lockout/Tagout Procedure Compliance Verification
+  raw_description: 'LOTO (Lockout/Tagout) procedures are required for 85 pieces of
+    equipment with hazardous energy sources. Machine-specific LOTO procedures are
+    documented on paper cards attached to each machine. Annual reviews of LOTO procedures
+    are tracked on a spreadsheet. Periodic inspections (OSHA requirement: annual per
+    procedure per authorized employee) are scheduled by the safety manager and documented
+    on paper forms. Approximately 200 LOTO inspections are required per year. Compliance
+    rate for on-time inspections was 78% last year. New employee LOTO training and
+    authorization is tracked in the HR training system but not linked to the LOTO
+    procedure inventory.
+
+    '
+- department: EHS
+  industry: Manufacturing
+  name: Environmental Emissions Monitoring and Reporting
+  raw_description: 'Our facility operates under a Title V air permit with 12 emission
+    units (boilers, paint booths, process vents). Continuous Emissions Monitoring
+    Systems (CEMS) are installed on 2 major emission units tracking NOx, SOx, and
+    CO. The remaining 10 units use periodic stack testing (annual) and emission factor
+    calculations. CEMS data is collected by the DCS and stored in 15-minute averages.
+    Regulatory reporting (quarterly excess emissions reports, annual emissions inventory)
+    is prepared by the environmental engineer by exporting CEMS data to Excel and
+    manually applying emission factors to production records. The process takes approximately
+    40 hours per quarterly report.
+
+    '
+- department: Safety
+  industry: Manufacturing
+  name: Incident Investigation and CAPA Management
+  raw_description: 'Safety incidents (injuries, near-misses, property damage) are
+    reported using a paper form submitted to the safety department within 24 hours.
+    The safety manager enters incident details into a shared Access database. Investigations
+    are conducted using a simple 5-Why methodology documented in Word. Corrective
+    actions are assigned to responsible parties with due dates, tracked in the same
+    Access database. Follow-up on corrective action completion is done via email reminders.
+    OSHA 300 log entries are made manually. There is no trending analysis of incident
+    patterns or leading indicator tracking. We had 12 recordable incidents and 45
+    near-misses reported last year.
+
+    '
+- department: Quality Assurance
+  industry: Pharmaceutical
+  name: GMP Batch Record Review and Release
+  raw_description: "Each pharmaceutical production batch generates a paper batch record\
+    \ of 40-80 pages documenting every production step, equipment used, in-process\
+    \ measurements, sampling results, deviations, and operator signatures. QA batch\
+    \ record review is performed by trained reviewers who check every entry for completeness,\
+    \ accuracy, and compliance with the master batch record. Review takes 4-8 hours\
+    \ per batch record. Approximately 100 batch records per month are reviewed. Common\
+    \ findings include: missing signatures (35%), calculation errors (12%), and incomplete\
+    \ deviation documentation (18%). Exception-based review is not used \u2014 every\
+    \ field is checked manually. Batch release cannot occur until QA review is complete.\n"
+- department: EHS
+  industry: Manufacturing
+  name: Chemical Exposure Monitoring for Worker Safety
+  raw_description: 'Industrial hygiene monitoring for chemical exposure is required
+    for 15 different chemicals used in our manufacturing processes. Personal exposure
+    monitoring (PEL/TLV compliance) is performed semi-annually using personal air
+    sampling pumps worn by operators during their shift. Area monitoring using direct-reading
+    instruments is performed quarterly. Results are documented in a lab report and
+    compared against OSHA PELs and ACGIH TLVs manually. Historical exposure data is
+    filed in employee medical records (paper). Trend analysis is not performed. Engineering
+    controls (ventilation, enclosures) are assessed qualitatively during annual industrial
+    hygiene surveys.
+
+    '
+- department: EHS
+  industry: Manufacturing
+  name: ISO 14001 Environmental Management System Audit
+  raw_description: 'Our facility maintains ISO 14001:2015 certification with surveillance
+    audits conducted annually by a third-party registrar. Internal audits are performed
+    semi-annually by trained internal auditors using a checklist based on the standard''s
+    clauses. Audit findings, observations, and opportunities for improvement are documented
+    in a Word report. Corrective actions from audit findings are tracked in an Excel
+    register with assigned owners, due dates, and evidence of closure. The environmental
+    aspects and impacts register is maintained in Excel with 150 identified aspects
+    scored using a significance matrix. Legal compliance obligations are tracked in
+    a separate spreadsheet with regulatory deadlines.
+
+    '
+- department: Safety
+  industry: Manufacturing
+  name: Machine Guarding Compliance Assessment
+  raw_description: 'We have 120 production machines requiring machine guarding per
+    OSHA 1910.212 and ANSI B11 standards. A comprehensive machine guarding assessment
+    was performed 3 years ago, identifying 45 guarding deficiencies. Of these, 38
+    have been corrected, 7 remain on a capital projects list awaiting funding. New
+    equipment purchases include guarding per the PO specification, but commissioning
+    verification of guarding compliance is inconsistent. The machine guarding inventory
+    (type of guard, interlock verification date, inspection frequency) is maintained
+    in a spreadsheet. Monthly safety walks include a machine guarding spot-check but
+    this is not a systematic, comprehensive assessment.
+
+    '
+- department: EHS
+  industry: Manufacturing
+  name: SDS Management and Chemical Inventory Tracking
+  raw_description: 'We maintain Safety Data Sheets (SDS) for approximately 350 chemical
+    products used in our facility. SDSs are stored both electronically (in a shared
+    folder organized by manufacturer) and in physical binders at point-of-use locations.
+    When new chemicals are introduced, the purchasing department is supposed to forward
+    the SDS to EHS before the chemical arrives, but this process is followed only
+    about 70% of the time. SDS updates from manufacturers are received periodically
+    and must be manually filed. Employees access SDSs primarily via the physical binders.
+    There is no centralized SDS management system with search capability, automatic
+    update tracking, or chemical inventory linkage to the ERP purchasing system.
+
+    '
+- department: Safety
+  industry: Manufacturing
+  name: Permit-to-Work System for Hot Work Operations
+  raw_description: 'Hot work (welding, cutting, brazing) outside designated welding
+    areas requires a Hot Work Permit issued by the area supervisor. The permit is
+    a triplicate paper form documenting the location, work description, fire watch
+    requirements, atmospheric testing results (if applicable), and duration. Approximately
+    25 hot work permits are issued per week. Permit duration is limited to one shift.
+    Fire watch requirements extend 60 minutes after hot work completion. Compliance
+    verification is performed by the safety department through random spot checks
+    (5-10 per week). Permit records are filed in the safety office for one year. There
+    is no digital tracking, no real-time visibility of active permits, and no systematic
+    analysis of permit volume trends or locations.
+
+    '
+- department: Safety
+  industry: Manufacturing
+  name: OSHA Recordkeeping and Annual Reporting
+  raw_description: 'OSHA 300 log entries are made by the safety manager within 7 days
+    of a recordable incident. Determination of recordability follows OSHA 1904 guidelines
+    and often requires consultation with the occupational health clinic. Data entry
+    is performed in an Excel-based 300 log template. The OSHA 300A summary is posted
+    annually from February 1 to April 30. Electronic submission via the OSHA Injury
+    Tracking Application (ITA) is completed annually by March 2. DART (Days Away,
+    Restricted, or Transferred) rate calculation is done manually. Our current DART
+    rate is 2.1 against an industry average of 3.0. Rate benchmarking against NAICS
+    code averages requires manual lookup from the BLS website.
+
+    '
+- department: HR
+  industry: Manufacturing
+  name: Operator Skill Matrix and Training Gap Analysis
+  raw_description: 'Our manufacturing floor has 180 direct labor operators across
+    6 departments. Each department maintains a skill matrix on a poster-sized laminated
+    grid showing operators versus machine/ process qualifications (green = qualified,
+    yellow = in training, red = not qualified). Matrix updates are done with dry-erase
+    markers. When operators are absent, supervisors visually scan the matrix to identify
+    qualified replacements. Training records are stored in the HR system (ADP) but
+    are not linked to the shop-floor skill matrix. Cross-training needs are identified
+    subjectively by supervisors. There is no data-driven analysis of critical skill
+    gaps or succession risk.
+
+    '
+- department: HR
+  industry: Manufacturing
+  name: Time and Attendance Compliance Monitoring
+  raw_description: '550 employees clock in and out using badge readers at 4 plant
+    entrances. Time records feed into the Kronos timekeeping system. Supervisors review
+    and approve timecards weekly. Common exceptions requiring manual review include:
+    missed punches (average 45 per week), overtime authorization verification, break
+    compliance for production workers, and shift premium eligibility. A payroll clerk
+    processes exceptions by comparing Kronos records against supervisor-approved exception
+    forms. Union contract rules specify 15 different pay categories with complex premium
+    and penalty calculations. Current exception processing takes 12 hours per weekly
+    pay cycle. Payroll errors result in approximately 20 grievances per year.
+
+    '
+- department: Safety
+  industry: Manufacturing
+  name: Employee Safety Training Record Management
+  raw_description: 'OSHA-required safety training (Hazard Communication, LOTO, Confined
+    Space, Forklift, Respiratory Protection, etc.) must be completed on initial hire
+    and refreshed annually or as required. Training records are maintained in a combination
+    of the LMS (Learning Management System) for computer-based training and paper
+    sign-in sheets for hands-on training sessions. The safety training coordinator
+    manually checks training compliance monthly by cross- referencing the employee
+    roster with training records. Compliance reports are generated by exporting LMS
+    data and manually merging with paper records in Excel. Current compliance rate
+    is 88% (target: 100%). The biggest gap is refresher training for existing employees.
+
+    '
+- department: Operations
+  industry: Manufacturing
+  name: Workforce Scheduling for Continuous Operations
+  raw_description: 'Our plant operates 24/7 with 4 shift crews rotating on a DuPont
+    schedule (12-hour shifts, 4 weeks per cycle). Each crew requires 35 operators
+    across 6 departments with specific skill requirements. Schedule creation accounts
+    for planned vacations, FMLA leaves, and training absences. Overtime assignment
+    follows seniority rules from the union contract. The scheduling process is managed
+    in Excel by the shift superintendent, taking approximately 10 hours per 4-week
+    cycle. Schedule changes due to call-offs (average 3 per day) require immediate
+    callback of off-shift personnel, managed via phone tree. There is no automated
+    scheduling or optimization tool.
+
+    '
+- department: HR
+  industry: Manufacturing
+  name: Pre-Employment Skills Assessment Automation
+  raw_description: "Manufacturing job candidates undergo a skills assessment process\
+    \ including math aptitude, mechanical reasoning, blueprint reading, and hands-on\
+    \ dexterity tests. Assessments are administered in-person at our HR office, scored\
+    \ manually using answer keys, and results entered into the applicant tracking\
+    \ system (ATS) by HR staff. The assessment process takes 2 hours per candidate\
+    \ including setup and scoring. We assess approximately 40 candidates per month.\
+    \ Test materials are paper-based with 3 different versions to prevent copying.\
+    \ Score normalization and comparison across test versions is not performed \u2014\
+    \ all versions are assumed equivalent. Assessment results are not correlated with\
+    \ on-the-job performance after hire.\n"
+- department: Production
+  industry: Manufacturing
+  name: Shop Floor Labor Allocation and Line Manning
+  raw_description: "Daily labor allocation assigns 120 operators to approximately\
+    \ 40 work centers based on the production schedule, operator qualifications, and\
+    \ absenteeism. The production supervisor makes allocation decisions at the 6:00\
+    \ AM shift start meeting using a whiteboard showing the day's schedule and available\
+    \ operators. When operators are absent or lines are rebalanced due to order changes,\
+    \ reallocation occurs throughout the shift. Each reallocation decision considers\
+    \ operator certifications (some machines require specific training), ergonomic\
+    \ rotation requirements, and union seniority rules. There is no decision support\
+    \ tool \u2014 all allocation is based on supervisor experience and institutional\
+    \ knowledge.\n"
+- department: Safety
+  industry: Manufacturing
+  name: Contractor Safety Orientation and Access Control
+  raw_description: 'External contractors working on-site must complete a safety orientation
+    before being issued a contractor badge. Orientation covers plant safety rules,
+    emergency procedures, PPE requirements, and hazard communication. Currently, orientation
+    is delivered as a 30-minute video followed by a paper quiz (10 questions, passing
+    score: 80%). Approximately 200 contractor orientations are conducted annually.
+    Contractor badges expire after 12 months. Badge issuance and expiration tracking
+    is done in a spreadsheet by the security department. There is no integration between
+    the contractor safety orientation system and the physical access control system
+    (badge readers). Contractors working in permit-required areas need additional
+    training documented on separate paper forms.
+
+    '
+- department: HR
+  industry: Manufacturing
+  name: Performance Review and Competency Evaluation
+  raw_description: "Annual performance reviews are conducted for all 550 employees\
+    \ using a paper-based evaluation form with 15 competency ratings (1-5 scale) plus\
+    \ narrative comments. Supervisors complete the form, discuss with the employee,\
+    \ and submit signed copies to HR. HR staff manually enter ratings into the HRIS\
+    \ for compensation adjustment calculations. The review process takes 6 weeks to\
+    \ complete company-wide. Calibration meetings ensure consistency across departments\
+    \ but are conducted verbally with no data visualization. Competency gap analysis\
+    \ for individual development plans is not systematic \u2014 supervisor judgment\
+    \ drives development recommendations. 360-degree feedback is not used. Historical\
+    \ rating distributions show 85% of employees receive \"Meets Expectations\" or\
+    \ higher.\n"
+- department: HR
+  industry: Manufacturing
+  name: Apprenticeship Program Tracking and Progress Monitoring
+  raw_description: 'Our 4-year maintenance apprenticeship program enrolls 8-12 apprentices
+    annually. Each apprentice must complete 8,000 hours of on-the-job training across
+    10 skill areas plus 576 hours of classroom instruction. Progress tracking includes
+    hours logged per skill area, competency assessments at each stage gate, classroom
+    grades, and mentor evaluations. All tracking is done in an Excel workbook maintained
+    by the apprenticeship coordinator. Hour verification requires cross-referencing
+    time cards with job assignments. The state apprenticeship council requires quarterly
+    progress reports in a specific format that is manually prepared. We have no automated
+    skill progression tracking or real-time visibility into apprentice competency
+    levels.
+
+    '
+- department: HR
+  industry: Manufacturing
+  name: Union Grievance Tracking and Resolution
+  raw_description: 'Our unionized workforce files approximately 60 grievances per
+    year across 4 contract sections (work rules, overtime assignment, job posting,
+    discipline). Grievances are filed on paper forms and follow a 4-step resolution
+    process (supervisor response, department manager review, HR hearing, arbitration).
+    Each step has contractually defined response timelines. Grievance tracking is
+    managed in an Access database by the labor relations specialist. Analysis of grievance
+    patterns (by supervisor, department, issue type, shift) is performed annually
+    using manual queries. Average resolution time is 35 days. Arbitration outcomes
+    and precedent-setting decisions are filed as paper records in the labor relations
+    office. There is no systematic trending or early-warning analysis.
+
+    '
+- department: Facilities
+  industry: Manufacturing
+  name: Utility Meter Data Collection and Energy Monitoring
+  raw_description: 'Our facility has 45 electrical meters (main and sub-meters), 8
+    natural gas meters, and 12 water meters. Main utility meters are read monthly
+    by the utility company. Sub-meters are read weekly by a facilities technician
+    who walks the plant and records readings on a clipboard. Data is entered into
+    a spreadsheet for tracking. Energy consumption is reported as total kWh and therms
+    per month. There is no sub-metering at the machine or production line level. Real-time
+    energy monitoring is not available. Energy KPIs (kWh per unit produced, BTU per
+    square foot) are calculated monthly. We participate in a voluntary energy reporting
+    program (EPA Energy Star for Plants) requiring annual benchmarking data submission.
+
+    '
+- department: Facilities
+  industry: Manufacturing
+  name: Solar Panel Performance Monitoring
+  raw_description: 'Our facility has a 500kW rooftop solar installation with 1,500
+    panels across 4 inverter strings. An online monitoring portal from the inverter
+    manufacturer shows string-level power output updated every 5 minutes. Panel-level
+    monitoring is not available. Performance degradation is assessed annually by comparing
+    actual vs expected output using PVsyst modeling software. Soiling losses are addressed
+    through bi-annual panel washing. We have experienced 2 inverter failures in 3
+    years, detected only when the monthly utility bill showed higher-than-expected
+    grid consumption. There is no automated alerting for underperforming strings or
+    individual panel failures. Net metering credits are tracked by the utility company;
+    we verify their calculations quarterly against our inverter data.
+
+    '
+- department: Facilities
+  industry: Manufacturing
+  name: Compressed Air System Energy Optimization
+  raw_description: 'Our compressed air system (3 x 150HP rotary screw compressors,
+    1 x 200HP centrifugal) consumes 18% of total plant electricity. Compressors are
+    managed by a sequencing controller that cycles units based on pressure demand.
+    System pressure is maintained at 110 PSI at the header; end-of-line pressure drops
+    to 85-90 PSI at distant points. An energy audit 2 years ago identified 130 air
+    leaks and recommended pressure reduction to 95 PSI, installation of flow meters,
+    and repair of heat recovery systems on 2 units. Approximately 60% of recommended
+    actions have been completed. There is no continuous monitoring of specific energy
+    consumption (kWh per 1000 cfm) or leak rate trending.
+
+    '
+- department: Sustainability
+  industry: Manufacturing
+  name: Greenhouse Gas Emissions Inventory and Reporting
+  raw_description: 'Annual GHG inventory covers Scope 1 (natural gas combustion, fleet
+    vehicles, refrigerant leaks), Scope 2 (purchased electricity), and partial Scope
+    3 (employee commuting, business travel) emissions. Calculation follows the GHG
+    Protocol Corporate Standard using emission factors from EPA and eGRID. Data collection
+    involves: monthly utility bills (manually entered), fleet fuel card reports (CSV
+    download), refrigerant purchase/disposal records (paper logs), and a voluntary
+    employee commute survey (20% response rate). The inventory takes 80 hours annually
+    to compile in Excel. Scope 3 supply chain emissions are not calculated. Our science-based
+    target commits to 30% reduction by 2030 from a 2019 baseline.
+
+    '
+- department: Sustainability
+  industry: Manufacturing
+  name: Waste Stream Characterization and Recycling Optimization
+  raw_description: 'Our facility generates 15 waste streams including metal scrap,
+    cardboard, plastic film, wood pallets, mixed municipal waste, oily rags, spent
+    coolant, paint waste, and electronic waste. Recycling rate is 62% by weight (target:
+    75%). Waste characterization audits are performed annually by sorting a sample
+    of the mixed waste stream. Waste hauling is managed through contracts with 3 waste
+    vendors. Monthly waste weights are estimated from container counts and assumed
+    fill levels. Revenue from scrap metal recycling ($180,000/year) is tracked by
+    the accounting department. Waste reduction initiatives are managed through a sustainability
+    committee that meets quarterly with no systematic project tracking.
+
+    '
+- department: Facilities
+  industry: Commercial
+  name: Building Energy Management System Programming
+  raw_description: 'Our BMS controls HVAC, lighting, and some process loads across
+    a 350,000 sq ft manufacturing and office complex. The BMS was installed 8 years
+    ago with 1,200 control points. Programming changes (schedule adjustments, setpoint
+    changes, alarm modifications) are made by an external BMS service contractor at
+    $150/hour. On average, 4 programming requests are made per month. Response time
+    for non-emergency changes is 5-7 business days. The BMS interface is a proprietary
+    desktop application accessible only from 2 workstations. Alarm management generates
+    200-300 alarms per day, of which 80% are nuisance alarms that are ignored. No
+    fault detection and diagnostics (FDD) algorithms are implemented. Energy savings
+    from BMS optimization have not been quantified.
+
+    '
+- department: Sustainability
+  industry: Consumer Goods
+  name: Carbon Footprint Calculation for Individual Products
+  raw_description: 'Customer requests for product-level carbon footprint data are
+    increasing. Currently, we can provide only a rough facility-level allocation (total
+    emissions divided by total production units). Life Cycle Assessment (LCA) studies
+    have been completed for our top 3 products using SimaPro software and ecoinvent
+    databases, but each LCA took 6 months and $80,000 in consulting fees. For the
+    remaining 247 SKUs, no product-level carbon data exists. Manufacturing process
+    energy consumption is not tracked at the product level. Supply chain (Scope 3
+    upstream) carbon data is available from only 5% of our suppliers. Customer reporting
+    requirements vary (PCF per ISO 14067, CDP supply chain responses, custom formats).
+
+    '
+- department: Facilities
+  industry: Manufacturing
+  name: Water Usage Monitoring and Conservation
+  raw_description: 'Our facility uses 15 million gallons of water annually for process
+    cooling, boiler feedwater, cleaning, and sanitary purposes. Water is supplied
+    by the municipal utility and metered at a single main meter. There are no internal
+    sub-meters to identify consumption by department or process. Cooling tower blowdown
+    volume is estimated from chemical treatment dosing records. A water balance audit
+    performed 5 years ago identified 3 major reduction opportunities (cooling tower
+    cycles optimization, rinse water recirculation, leak repair) with estimated savings
+    of 20%. Only the leak repairs have been completed. Wastewater is discharged under
+    an NPDES permit with monthly sampling requirements for pH, BOD, TSS, and metals.
+    Sampling is performed by an external laboratory.
+
+    '
+- department: Engineering
+  industry: Manufacturing
+  name: Engineering Change Order Process Management
+  raw_description: "Engineering Change Orders (ECOs) are processed through a 5-step\
+    \ workflow: initiation, impact assessment, review board approval, implementation\
+    \ planning, and effectivity tracking. ECOs are initiated via a Word form emailed\
+    \ to the engineering change coordinator. Impact assessment requires input from\
+    \ engineering, manufacturing, quality, purchasing, and customer service \u2014\
+    \ coordinated via email with average response time of 5 business days. The Change\
+    \ Review Board meets weekly to review and approve/reject pending ECOs. Approximately\
+    \ 40 ECOs are processed per month with an average cycle time of 28 days. ECO tracking\
+    \ is done in an Access database. BOM updates in the ERP system are made manually\
+    \ after approval. Effectivity dates (at what serial number or date the change\
+    \ applies) are tracked on a spreadsheet.\n"
+- department: Engineering
+  industry: Manufacturing
+  name: CAD Model Version Control and Release Management
+  raw_description: 'Our engineering team of 25 designers uses SolidWorks for 3D CAD
+    modeling. Files are stored on a network shared drive with folder-based organization
+    (project/assembly/part). There is no formal PDM (Product Data Management) system.
+    Version control relies on filename conventions (partname_v1, partname_v2, etc.).
+    Released drawings are converted to PDF and stored in a separate "Released" folder.
+    Designers occasionally overwrite files without updating version numbers, leading
+    to confusion about which version is current. BOM extraction from SolidWorks assemblies
+    is manual (export to Excel, then manual entry into ERP). We are evaluating SolidWorks
+    PDM but have concerns about migration of existing data and workflow changes.
+
+    '
+- department: Engineering
+  industry: Automotive
+  name: DFMEA (Design Failure Mode and Effects Analysis)
+  raw_description: 'Design FMEAs are required for all new product designs per AIAG/VDA
+    FMEA Handbook methodology. FMEAs are created in Excel templates by cross-functional
+    teams (design engineer, test engineer, manufacturing engineer, quality engineer).
+    Sessions are conducted as 2-4 hour meetings over multiple weeks. Each FMEA document
+    contains 50-200 failure modes with severity, occurrence, and detection ratings.
+    Action Priority (AP) replaces the legacy RPN method per the 2019 AIAG/VDA update,
+    but some team members still reference RPN. Historical FMEAs from similar products
+    are stored in various project folders with no centralized searchable database.
+    Lessons learned from warranty and field failures are incorporated reactively when
+    remembered by experienced engineers.
+
+    '
+- department: Engineering
+  industry: Aerospace
+  name: Tolerance Stack-Up Analysis for Assemblies
+  raw_description: 'Complex assemblies with 20-50 tolerance-contributing dimensions
+    require tolerance stack-up analysis to verify fit and function. Analysis is performed
+    using a combination of worst-case and statistical (RSS) methods in Excel spreadsheets
+    created by each engineer using their own format. The analysis is typically done
+    once during initial design and rarely updated when tolerances are changed during
+    the design process. There is no standard template or linked connection to CAD
+    models. GD&T (Geometric Dimensioning and Tolerancing) stack-ups for position and
+    profile tolerances are particularly challenging and sometimes require commercial
+    software (VSA or 3DCS) but licenses are limited to 2 seats used only for high-priority
+    programs.
+
+    '
+- department: Engineering
+  industry: Consumer Electronics
+  name: New Product Introduction Process Gate Reviews
+  raw_description: 'Our NPI process follows a 5-phase gate review model: Concept,
+    Feasibility, Development, Validation, and Launch. Each phase gate has a defined
+    set of deliverables (design reviews, test reports, supplier qualifications, regulatory
+    approvals) that must be completed before advancing. Gate review meetings are attended
+    by 8-12 stakeholders from engineering, marketing, manufacturing, quality, and
+    supply chain. Deliverable status is tracked in a master Excel checklist (200+
+    line items per program). Gate review presentations are prepared in PowerPoint
+    by the program manager, taking 8-12 hours per gate. We run 6-8 NPI programs concurrently
+    with an average duration of 14 months. Schedule tracking uses Microsoft Project
+    files that are updated weekly.
+
+    '
+- department: Engineering
+  industry: Manufacturing
+  name: Prototype Build Tracking and Test Documentation
+  raw_description: 'Our prototype shop builds 50-80 prototype assemblies per year
+    for new product development. Prototype build instructions are communicated through
+    redlined drawings and verbal instructions from the design engineer to the prototype
+    technicians. Bill of materials for prototypes is maintained in a separate spreadsheet
+    from the production BOM system. Prototype parts are often sourced from different
+    suppliers than production parts, with engineering buying parts on purchase cards
+    (P-Cards) outside the normal purchasing process. Test results (dimensional, functional,
+    environmental) are documented in PowerPoint or Word reports stored in project
+    folders. There is no centralized test data repository or standardized test report
+    format.
+
+    '
+- department: Manufacturing Engineering
+  industry: Manufacturing
+  name: Design for Manufacturing Review Process
+  raw_description: "DFM (Design for Manufacturability) reviews are conducted during\
+    \ the design phase to identify potential manufacturing issues before tooling commitment.\
+    \ Reviews are performed as informal meetings between design engineers and manufacturing\
+    \ engineers, with feedback captured in email or meeting notes. There is no standardized\
+    \ DFM checklist, scoring rubric, or formal feedback mechanism. Manufacturing engineers\
+    \ estimate cost and feasibility based on experience with similar parts. Issues\
+    \ identified late in the design process (after tooling has started) have caused\
+    \ an average of $75,000 in tooling rework per year across all programs. DFM review\
+    \ participation is inconsistent \u2014 manufacturing engineering is not always\
+    \ invited early enough in the design cycle.\n"
+- department: Engineering
+  industry: Medical Devices
+  name: Material Selection and Qualification Process
+  raw_description: 'Medical device material selection requires evaluating biocompatibility
+    (per ISO 10993), mechanical properties, sterilization compatibility, and supply
+    chain availability. Material qualification involves submitting material data to
+    regulatory affairs for inclusion in the Design History File (DHF). Currently,
+    material data is collected from supplier datasheets (PDFs), tested internally
+    for key mechanical properties, and evaluated for biocompatibility through external
+    testing labs (8-12 week lead time). Material selection decisions are documented
+    in design review meeting minutes. There is no centralized material database with
+    pre-qualified materials. Each new project team starts material evaluation from
+    scratch, even for commonly used materials. Approximately 20 material qualifications
+    are performed per year.
+
+    '
+- department: Engineering
+  industry: Technology
+  name: Patent and Intellectual Property Management
+  raw_description: 'Our company holds 85 active patents and 15 pending applications
+    across 3 technology areas. Patent portfolio management is handled by outside patent
+    counsel with internal coordination by the VP of Engineering. Invention disclosures
+    are submitted by engineers using a Word template and emailed to the VP. Review
+    of invention disclosures for patentability occurs quarterly. Maintenance fee deadlines
+    for existing patents are tracked in a spreadsheet maintained by the legal assistant.
+    Prior art searches are performed by patent counsel at $2,000-5,000 per search.
+    There is no automated monitoring of competitor patent filings or freedom-to-operate
+    analysis. Patent-to-product mapping is maintained informally.
+
+    '
+- department: Engineering
+  industry: Automotive
+  name: Simulation and FEA Analysis Workflow
+  raw_description: "Finite Element Analysis (FEA) simulations are performed for structural,\
+    \ thermal, and modal analysis of new designs. Our simulation team of 3 engineers\
+    \ uses ANSYS Mechanical with 5 HPC solver licenses. Simulation requests are submitted\
+    \ via email and tracked on a shared Outlook calendar. Average turnaround for a\
+    \ simulation study is 5-7 business days. Model preparation (meshing, boundary\
+    \ conditions, material assignment) is manual and takes 40-60% of the total analysis\
+    \ time. Standard simulation templates exist for common load cases but are stored\
+    \ locally on individual engineers' workstations. Results are presented in PowerPoint\
+    \ reports with screenshots. There is no simulation data management system \u2014\
+    \ model files, results, and reports are stored in project folders with inconsistent\
+    \ naming conventions.\n"
+- department: Procurement
+  industry: Manufacturing
+  name: Purchase Requisition to PO Conversion
+  raw_description: 'Purchase requisitions are generated automatically by the MRP run
+    in SAP or manually by department managers for non-production items. The procurement
+    team of 5 buyers processes approximately 800 requisitions per month. Each requisition
+    requires: supplier selection (from approved vendor list), price verification (against
+    contract or last purchase price), approval routing (based on dollar thresholds:
+    <$1K auto-approve, $1-10K manager, $10-50K director, >$50K VP), and PO creation.
+    Average cycle time from requisition to PO is 4.2 days. Price comparison across
+    suppliers is done manually using a spreadsheet of contracted rates. Emergency
+    purchases (3% of volume) bypass normal approval routing. PO acknowledgment from
+    suppliers is requested by email and tracked inconsistently.
+
+    '
+- department: Accounts Payable
+  industry: Manufacturing
+  name: Three-Way Invoice Matching and Payment
+  raw_description: "Our AP department processes 4,500 vendor invoices per month. Three-way\
+    \ matching (PO, goods receipt, invoice) is performed manually by AP clerks in\
+    \ SAP. Match exceptions (quantity variance >5%, price variance >$50, or missing\
+    \ goods receipt) require investigation and resolution. Exception rate is 22% of\
+    \ invoices. Average invoice processing time is 8 days. Duplicate invoice detection\
+    \ is performed manually by checking vendor invoice numbers in SAP. Early payment\
+    \ discount capture rate is only 45% of available discounts due to processing delays.\
+    \ Paper invoices (30% of volume) are scanned but not OCR-processed \u2014 data\
+    \ is keyed manually. Electronic invoices arrive via email (PDF attachments) and\
+    \ EDI (20% of volume).\n"
+- department: Procurement
+  industry: Manufacturing
+  name: Strategic Sourcing and Supplier Negotiation
+  raw_description: 'Annual strategic sourcing is performed for the top 20 spend categories
+    (representing 80% of total procurement spend of $45 million). The process includes:
+    spend analysis, requirements definition, RFQ preparation and distribution, bid
+    evaluation, supplier negotiation, and contract award. Spend analysis is performed
+    by downloading 12 months of PO data from the ERP and categorizing in Excel using
+    pivot tables. RFQs are distributed via email with response tracking in a shared
+    mailbox. Bid comparison is done in custom Excel scorecards evaluating price, quality,
+    delivery, and service. Negotiation outcomes and contract terms are documented
+    in Word and stored in a contracts folder. Savings tracking is done manually by
+    comparing new contracted prices to previous prices.
+
+    '
+- department: Finance
+  industry: Manufacturing
+  name: Expense Report Processing and Policy Compliance
+  raw_description: '550 employees submit expense reports monthly (approximately 350
+    reports/month) using an Excel template. Receipts are attached as scanned images
+    or photos. Reports are submitted via email to the employee''s manager for approval,
+    then forwarded to AP for processing. AP verifies policy compliance: per diem rates,
+    mileage calculations, receipt requirements (>$25), and prohibited expenses. Policy
+    violations are found in approximately 12% of reports, requiring back-and-forth
+    with the employee. Average processing time from submission to reimbursement is
+    18 days. Corporate credit card reconciliation is performed manually by comparing
+    card statements to submitted expense reports. There is no automated duplicate
+    detection or spend analytics.
+
+    '
+- department: Finance
+  industry: Manufacturing
+  name: Capital Expenditure Request and Approval Workflow
+  raw_description: 'Capital expenditure requests (CERs) above $5,000 require formal
+    justification and multi- level approval. The CER form (Word template) includes
+    project description, business justification, cost breakdown, ROI calculation,
+    alternatives considered, and implementation timeline. Approval routing varies
+    by amount: $5-25K (plant manager), $25-100K (VP Operations), $100-500K (CFO),
+    >$500K (Board). Annual capital budget is $4.5 million across 60-80 approved projects.
+    CER tracking is managed in a master Excel spreadsheet maintained by the finance
+    controller. Project progress and actual vs budget spending is reviewed quarterly.
+    Post-implementation reviews to validate ROI assumptions are required for projects
+    over $100K but are completed only 40% of the time.
+
+    '
+- department: Finance
+  industry: Manufacturing
+  name: Accounts Receivable Aging and Collections
+  raw_description: 'Our AR portfolio consists of 450 active customer accounts with
+    total outstanding receivables of $8.5 million. Average DSO (Days Sales Outstanding)
+    is 52 days against a target of 40 days. AR aging reports are generated weekly
+    from the ERP and reviewed by the collections team (2 people). Collection activities
+    include: automated dunning letters at 30/60/90 days, phone follow-up for accounts
+    over $10,000 and 60+ days, and escalation to sales representative for strategic
+    accounts. Customer payment behavior patterns (consistently late, dispute-prone,
+    seasonal) are tracked informally by the collectors based on experience. Credit
+    limit review is triggered manually when accounts exceed their limit. Bad debt
+    write-offs averaged $120,000 per year over the last 3 years.
+
+    '
+- department: Procurement
+  industry: Manufacturing
+  name: Vendor Master Data Management and Cleanup
+  raw_description: 'Our ERP vendor master contains 4,200 vendor records, of which
+    approximately 1,800 have had no transactions in the past 3 years. Duplicate vendor
+    records exist due to: variations in vendor name entry, multiple remit-to addresses,
+    and acquisitions that merged vendor lists. A vendor master cleanup was performed
+    4 years ago but duplicates have re-accumulated. New vendor setup requires a paper
+    form with W-9 or W-8BEN, banking details for ACH payment, and insurance certificates.
+    The form is manually entered into the ERP by an AP clerk. Vendor classification
+    (commodity codes, minority/diversity status, preferred/approved/ restricted) is
+    inconsistently maintained. There is no automated duplicate detection or vendor
+    master governance process.
+
+    '
+- department: Finance
+  industry: Manufacturing
+  name: Budget Variance Reporting and Analysis
+  raw_description: 'Monthly budget variance reports are prepared for 12 cost center
+    managers comparing actual spending to the annual budget. The process involves:
+    downloading actual costs from the GL (General Ledger), mapping accounts to budget
+    line items (which don''t perfectly align with GL accounts), calculating variances,
+    and preparing a report package. Each report takes approximately 4 hours to prepare.
+    Cost center managers provide variance explanations via email for variances exceeding
+    $5,000 or 10%. Explanations are compiled into a management report by the finance
+    analyst. Forecast updates (reforecast based on YTD actuals plus expected remaining
+    spend) are done quarterly in Excel. There is no self-service access for cost center
+    managers to view real-time spending against budget.
+
+    '
+- department: Finance
+  industry: Manufacturing
+  name: Fixed Asset Tracking and Depreciation
+  raw_description: "We track 2,800 fixed assets with a gross book value of $65 million.\
+    \ Asset records are maintained in the ERP fixed asset module with attributes including:\
+    \ description, location, cost center, acquisition date, original cost, depreciation\
+    \ method, and useful life. Physical asset verification is performed annually by\
+    \ the accounting team walking the plant with a printed asset list, physically\
+    \ locating each asset, and verifying its existence and location. The verification\
+    \ process takes 3 weeks with 2 people. Asset transfers between locations or cost\
+    \ centers require a paper transfer form processed by accounting. Asset disposal\
+    \ requires written authorization and generates a gain/loss calculation. Barcode\
+    \ labels are attached to assets but are not scanned during verification \u2014\
+    \ all confirmation is visual.\n"
+- department: Legal
+  industry: Manufacturing
+  name: Contract Lifecycle Management
+  raw_description: 'We manage approximately 300 active contracts including supplier
+    agreements, customer contracts, lease agreements, service contracts, and NDAs.
+    Contracts are stored as PDF files in a folder structure on the shared drive organized
+    by contract type and counterparty. Key dates (expiration, renewal, review) are
+    tracked in an Excel register maintained by the legal assistant. Contract review
+    and approval workflow uses email routing with tracked changes in Word. Average
+    contract review cycle is 15 business days. Renewal notifications are generated
+    manually 90 days before expiration. Three contracts auto-renewed unfavorably last
+    year because the renewal deadline was missed. There is no clause library, no obligation
+    tracking, and no spend-under-contract analysis.
+
+    '
+- department: Finance
+  industry: Manufacturing
+  name: Payroll Processing and Multi-State Tax Compliance
+  raw_description: 'Bi-weekly payroll processing covers 550 employees across 3 states
+    with different tax withholding requirements. Payroll is computed by the HR/payroll
+    team using ADP Workforce Now. Inputs include: Kronos timekeeping data (imported
+    via file upload), commission calculations from a separate sales spreadsheet, bonus
+    accruals from the compensation manager, benefit deductions from the benefits administrator,
+    and garnishment orders from legal. Each payroll cycle requires 16 hours of processing
+    including data collection, import, validation, exception review, and final approval.
+    Multi-state tax nexus determination for traveling employees is assessed manually.
+    Year-end W-2 reconciliation against quarterly 941 filings requires 40 hours. Retroactive
+    pay adjustments (averaging 15 per cycle) are calculated manually in Excel before
+    entry into ADP.
+
+    '
+- department: Compliance
+  industry: Manufacturing
+  name: Regulatory Change Impact Assessment Process
+  raw_description: 'Our compliance team monitors regulatory changes from 8 federal
+    agencies (EPA, OSHA, FDA, DOT, etc.) and 3 state regulatory bodies. Monitoring
+    is performed by subscribing to Federal Register email alerts and industry association
+    newsletters. When a potentially relevant regulation is identified, the compliance
+    manager performs an impact assessment by reviewing the regulation text, identifying
+    affected operations, and circulating a summary to department heads via email for
+    comment. The assessment process takes 2-5 business days depending on complexity.
+    Tracking of regulatory changes and their implementation status is done in an Excel
+    register with 200+ line items. Compliance audit preparation involves assembling
+    evidence of compliance from multiple departments, typically requiring 2 weeks
+    of effort before each external audit.
+
+    '
