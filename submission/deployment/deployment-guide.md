@@ -47,6 +47,7 @@
 | `EXTRACTION_CACHE_DIR` | Directory for on-disk extraction cache | `.cache/extractions` | No |
 | `CORPUS_DIR` | Directory containing ground-truth markdown reference docs | `app/corpus` | No |
 | `LOG_LEVEL` | Logging verbosity (`DEBUG`, `INFO`, `WARNING`, `ERROR`) | `INFO` | No |
+| `EMBED_CORPUS` | Enable/disable sentence-transformers execution to prevent Render Free tier startup OOM | `false` (default: `true`) | No |
 
 ### Frontend (`frontend/.env.production`)
 
