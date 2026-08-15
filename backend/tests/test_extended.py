@@ -276,7 +276,7 @@ def test_qwen_config_loading(monkeypatch):
     monkeypatch.setenv("LLM_API_KEY", "test-qwen-key")
     monkeypatch.setenv("LLM_MODEL", "qwen-plus")
     
-    settings = Settings()
+    settings = Settings(_env_file=None)
     assert settings.llm_provider == "qwen"
     assert settings.llm_api_key == "test-qwen-key"
     assert settings.llm_model == "qwen-plus"
@@ -290,7 +290,7 @@ def test_groq_switchable(monkeypatch):
     monkeypatch.delenv("LLM_API_KEY", raising=False)
     monkeypatch.delenv("LLM_MODEL", raising=False)
     
-    settings = Settings()
+    settings = Settings(_env_file=None)
     assert settings.llm_provider == "groq"
     assert settings.llm_api_key == "test-groq-key"
     assert settings.llm_model == "llama-3.1-8b-instant"
@@ -301,7 +301,7 @@ def test_get_llm_client_instantiation(monkeypatch):
     from app.llm.client import _get_llm_client
     monkeypatch.setenv("LLM_PROVIDER", "qwen")
     monkeypatch.setenv("LLM_API_KEY", "test-qwen-key")
-    settings = Settings()
+    settings = Settings(_env_file=None)
     client = _get_llm_client(settings)
     assert client.api_key == "test-qwen-key"
     assert str(client.base_url) == "https://ws-h28trj7vdat6f6dv.ap-southeast-1.maas.aliyuncs.com/compatible-mode/v1/"
