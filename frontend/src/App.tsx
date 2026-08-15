@@ -56,7 +56,7 @@ export default function App() {
   return (
     <div className="app-layout">
       <nav className="sidebar">
-        <div className="sidebar-brand">
+        <div className="sidebar-brand" onClick={() => navigate('/dashboard')}>
           <div className="logo">PI</div>
           <span>Process Intel</span>
         </div>
