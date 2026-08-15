@@ -11,7 +11,7 @@
 
 The Process Intelligence Engine strictly separates non-deterministic AI interpretation from deterministic decision-making:
 
-- **LLM (Groq / Llama 3):** Extracts bounded ordinal feature ratings (1–5), factual claims, and classifies natural language query intents. It **never** computes final scores or determines rankings.
+- **LLM (Groq / Llama 3.1):** Extracts bounded ordinal feature ratings (1–5), factual claims, and classifies natural language query intents. It **never** computes final scores or determines rankings.
 - **Deterministic Python Engine:** Computes normalized feature values, signed contributions, total scores, decision bands, override rules, verbatim quote verifications, and executes whitelisted parameterized SQL.
 
 ---
@@ -42,7 +42,7 @@ All Stage 2 evaluation artifacts are organized in the [`submission/`](submission
 
 - **Backend:** Python 3.9+, FastAPI, SQLAlchemy 2.0, Pydantic v2, Alembic
 - **Database:** PostgreSQL 16 with `pgvector` extension (single database architecture)
-- **AI / LLM:** Groq API (`llama3-8b-8192`) — free tier compliant
+- **AI / LLM:** Groq API (`llama-3.1-8b-instant`) — free tier compliant
 - **Embeddings:** Local `sentence-transformers/all-mpnet-base-v2` (768-dimensional, zero API cost)
 - **Frontend:** React 18, TypeScript, Vite, TanStack Query, Recharts, Vanilla CSS Design System
 
@@ -179,7 +179,7 @@ Natural language questions (`POST /api/ask`) do **not** use risky text-to-SQL ge
 
 ## 🧪 Automated Testing
 
-Run all 45 automated unit and integration tests:
+Run all 55 automated tests:
 
 ```bash
 cd backend

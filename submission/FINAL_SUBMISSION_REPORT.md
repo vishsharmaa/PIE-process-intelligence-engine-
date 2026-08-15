@@ -75,7 +75,7 @@
 4. **Cloud Deployment Execution:** Deploy Backend to Render and Frontend to Vercel following `submission/deployment/deployment-guide.md` and insert the live URLs into Questions 16 & 17.
 
 ### K. Target Production URLs
-- **Frontend Live URL:** `https://pie-frontend.vercel.app` *(or user Vercel deployment)*
+- **Frontend Live URL:** `https://pie-process-intelligence-engine.vercel.app`
 - **Backend API URL:** `https://pie-backend.onrender.com` *(or user Render deployment)*
 - **Interactive Swagger Docs:** `https://pie-backend.onrender.com/docs`
 - **GitHub Repository:** `https://github.com/vishsharmaa/PIE-process-intelligence-engine-`

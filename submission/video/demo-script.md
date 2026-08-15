@@ -158,11 +158,11 @@
 
 ### 7. Engineering Quality & Test Suite (10:00–11:30)
 
-**[Screen: Terminal showing `pytest` running across 45 tests with 100% pass rate]**
+**[Screen: Terminal showing `pytest` running across 55 tests with 100% pass rate]**
 
 > **Speaker:**  
 > "Behind this intuitive interface lies an uncompromising commitment to enterprise software engineering quality:
-> - Our automated test suite contains **45 comprehensive unit and integration tests** in Pytest, executing in under 1 second.
+> - Our automated test suite contains **55 comprehensive automated tests** in Pytest, executing in under 1 second.
 > - We test mathematical boundary conditions: all 1s, all 3s, all 5s, and randomized feature vectors, verifying that the linear additive scoring invariant holds in every single case.
 > - We test deduplication idempotency, verifying that identical process narratives always generate identical SHA-256 hashes.
 > - We test quote verification across exact matches, whitespace variations, and negative hallucination cases.

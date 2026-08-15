@@ -10,7 +10,7 @@
 
 | Category | Component / Test | Status | Result / Notes |
 |---|---|---|---|
-| **Automated Tests** | Backend Test Suite (`pytest`) | ✅ **PASSED** | **45/45 passing** in 0.89s (Scoring invariants, bands, overrides, quotes, dedup, schemas) |
+| **Automated Tests** | Backend Test Suite (`pytest`) | ✅ **PASSED** | **55/55 passing** (Scoring invariants, bands, overrides, quotes, dedup, schemas) |
 | **Frontend Build** | Production Build (`npm run build`) | ✅ **PASSED** | `tsc -b && vite build` succeeded in 181ms; 0 TypeScript errors |
 | **Database Migrations** | Alembic Revision `001_initial` | ✅ **VERIFIED** | All 11 tables + `vector` extension configured in declarative schema |
 | **Seed Dataset** | 100 Process Descriptions | ✅ **VERIFIED** | `processes_100.yaml` verified: 100 unique names, 100 unique SHA-256 hashes |

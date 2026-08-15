@@ -46,7 +46,7 @@ The **Process Intelligence Engine (PIE)** is an enterprise-grade AI decision pla
 
 In modern enterprises, prioritizing processes for automation, AI augmentation, or human-led redesign is bottlenecked by manual, subjective consulting audits. PIE solves this by implementing an objective, auditable, and deterministic decision engine powered by bounded Large Language Model (LLM) feature extraction and Retrieval-Augmented Generation (RAG).
 
-PIE ingests raw process text, extracts bounded ordinal ratings (1–5) and factual claims, verifies claims against a 25-document industrial engineering corpus using lexical and vector retrieval with exact substring quote matching, computes deterministic scores and signed factor contributions using a configurable YAML rubric, and dynamically updates portfolio rankings and percentiles across 100+ processes.
+PIE ingests raw process text, extracts bounded ordinal ratings (1–5) and factual claims, verifies claims against a 25-document industrial engineering corpus using lexical and vector retrieval with exact substring quote matching, computes deterministic scores and signed factor contributions using a configurable YAML rubric, and dynamically updates portfolio rankings and percentiles across 100 processes.
 
 ---
 
@@ -467,7 +467,7 @@ Every score produced by PIE is 100% explainable:
 
 ## 24. Automated Testing & Invariant Validation
 
-The test suite in `tests/` contains **45 automated unit and integration tests**:
+The test suite in `tests/` contains **55 automated tests**:
 
 ```bash
 cd backend
@@ -513,7 +513,7 @@ python3 -m pytest tests/ -v
 
 ## 28. Known Limitations
 
-- **Groq Free-Tier Rate Limits:** Heavy burst ingestion of 100+ processes requires throttling delays (1s per item) to respect TPM/RPM quotas.
+- **Groq Free-Tier Rate Limits:** Heavy burst ingestion of 100 processes requires throttling delays (1s per item) to respect TPM/RPM quotas.
 - **Corpus Domain Scope:** The pre-loaded RAG corpus currently covers 25 manufacturing and industrial engineering topics; expanding to finance or healthcare requires adding corresponding reference documents.
 
 ---

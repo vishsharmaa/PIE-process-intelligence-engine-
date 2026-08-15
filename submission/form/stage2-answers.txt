@@ -5,7 +5,7 @@ Repository: https://github.com/vishsharmaa/PIE-process-intelligence-engine-
 ================================================================================
 Q16. Live Application URL
 ================================================================================
-https://pie-frontend.vercel.app
+https://pie-process-intelligence-engine.vercel.app
 
 
 ================================================================================
@@ -47,7 +47,7 @@ https://github.com/vishsharmaa/PIE-process-intelligence-engine-/blob/main/submis
 ================================================================================
 Q23. Describe your application
 ================================================================================
-The Process Intelligence Engine (PIE) is an enterprise AI application that transforms unstructured natural language descriptions of business and industrial processes into structured, evidence-backed transformation intelligence. PIE ingests raw process narratives, extracts bounded 1–5 ordinal ratings across 8 operational dimensions, verifies extracted claims against a 25-document industrial engineering corpus via lexical and dense vector retrieval with exact substring quote matching, computes deterministic scores and factor contributions using a configurable YAML rubric, and dynamically updates portfolio rankings and percentiles across 100+ processes.
+The Process Intelligence Engine (PIE) is an enterprise AI application that transforms unstructured natural language descriptions of business and industrial processes into structured, evidence-backed transformation intelligence. PIE ingests raw process narratives, extracts bounded 1–5 ordinal ratings across 8 operational dimensions, verifies extracted claims against a 25-document industrial engineering corpus via lexical and dense vector retrieval with exact substring quote matching, computes deterministic scores and factor contributions using a configurable YAML rubric, and dynamically updates portfolio rankings and percentiles across 100 processes.
 
 
 ================================================================================
@@ -76,7 +76,7 @@ Q26. What makes your solution different?
 Q27. Frontend technology stack + challenges
 ================================================================================
 Stack: React 18/19, TypeScript 6, Vite 8, TanStack Query 5, Recharts 3, Custom CSS Design System (index.css, 695 lines).
-Challenges: Managing asynchronous 9-stage pipeline progress polling with real-time UI state updates, rendering dual-direction factor waterfall charts with custom color gradients for signed contributions, and maintaining sub-second client-side response times across a 100+ process portfolio without external UI framework bloat.
+Challenges: Managing asynchronous 9-stage pipeline progress polling with real-time UI state updates, rendering dual-direction factor waterfall charts with custom color gradients for signed contributions, and maintaining sub-second client-side response times across a 100 process portfolio without external UI framework bloat.
 
 
 ================================================================================
@@ -327,4 +327,4 @@ I confirm that this submission represents our original work for the MODUS Enterp
 ================================================================================
 Q56. Comments / Further Solution Notes
 ================================================================================
-PIE was engineered from day one as a production-grade enterprise asset rather than a simple hackathon prototype. The codebase contains 45 automated unit tests, strict linear scoring invariants, a unified PostgreSQL + pgvector architecture, and complete protection against text-to-SQL vulnerabilities. We welcome the evaluation committee to inspect our codebase, run the test suite, and explore the live deployed platform.
+PIE was engineered from day one as a production-grade enterprise asset rather than a simple hackathon prototype. The codebase contains 55 automated tests, strict linear scoring invariants, a unified PostgreSQL + pgvector architecture, and complete protection against text-to-SQL vulnerabilities. We welcome the evaluation committee to inspect our codebase, run the test suite, and explore the live deployed platform.

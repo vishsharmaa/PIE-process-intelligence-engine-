@@ -13,7 +13,7 @@
 ```
 ┌──────────────────────────────────────┐
 │  Vercel (React 18 + Vite SPA)        │
-│  https://pie-frontend.vercel.app     │
+│  https://pie-process-intelligence-engine.vercel.app     │
 └──────────────────────────────────────┘
                    │
                    │ HTTPS API Requests (VITE_API_BASE)
@@ -152,7 +152,7 @@ To populate the database with the pre-extracted, scored, and verified 100-proces
 4. Under **Environment Variables**, add:
    - `VITE_API_BASE`: `https://pie-backend.onrender.com`
 5. Click **Deploy**.
-6. Test the live production URL (e.g., `https://pie-frontend.vercel.app`).
+6. Test the live production URL (e.g., `https://pie-process-intelligence-engine.vercel.app`).
 
 ---
 

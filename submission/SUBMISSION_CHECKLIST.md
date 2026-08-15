@@ -7,7 +7,7 @@
 
 ## 🎯 Submission Artifacts Readiness Checklist
 
-- [x] **Live Application URL:** Frontend SPA ready for public access (`https://pie-frontend.vercel.app`).
+- [x] **Live Application URL:** Frontend SPA ready for public access (`https://pie-process-intelligence-engine.vercel.app`).
 - [x] **GitHub Repository:** Clean, organized repository with all code, tests, and documentation.
 - [ ] **Demo Video URL (USER ACTION):** Record video using `submission/video/demo-script.md` and paste public link into `submission/form/stage2-answers.md` (Q18).
 - [x] **System Architecture Diagram:** Rendered in high-res PNG & PDF (`submission/architecture/system-architecture.pdf`).
@@ -22,7 +22,7 @@
 - [x] **Database Migrations:** Alembic revision `001_initial` verified for PostgreSQL + pgvector.
 - [x] **pgvector Verified:** Vector(768) embedding column and cosine distance search verified.
 - [x] **100 Processes Verified:** `backend/seeds/processes_100.yaml` verified with 100 unique names and 100 unique SHA-256 hashes.
-- [x] **Automated Test Suite:** 45/45 tests passing in Pytest (100% pass rate).
+- [x] **Automated Test Suite:** 55/55 tests passing in Pytest (100% pass rate).
 - [x] **Frontend Build:** `npm run build` succeeds in 181ms with zero TypeScript errors.
 - [x] **End-to-End Workflow Verified:** Ingestion, extraction, scoring, RAG evidence, waterfall, and Ask PIE tested.
 - [x] **Zero Secrets Committed:** `.gitignore` excludes `.env`, API keys, and local caches.
