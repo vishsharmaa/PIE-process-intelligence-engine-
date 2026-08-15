@@ -165,18 +165,21 @@ Challenges: Packaging local vector generation dependencies into container images
 
 ---
 
-### Q36. AI capabilities
+### Q36. Which AI capabilities does your application include?
 **RECOMMENDED SELECTIONS:**
-- [x] Large Language Models (LLM)
-- [x] Retrieval-Augmented Generation (RAG)
+- [x] LLM
+- [x] RAG
 - [x] Semantic Search
-- [x] Embeddings & Vector Search
-- [x] AI Classification / Intent Routing
-- [x] Information Extraction
-- [x] Explainable AI (XAI) / Visual Attribution
+- [x] Embeddings
+- [x] Vector Search
+- [x] Workflow Automation
+- [x] AI Classification
+- [x] AI Recommendations
 
 **WHY:**
-Each selected capability is genuinely implemented in the codebase: Groq Llama 3 executes structured information extraction and closed intent classification; `sentence-transformers` and `pgvector` implement embeddings, dense vector search, and RAG retrieval over 25 technical corpus documents; and the deterministic engine generates linear additive factor waterfalls and plain-language attribution for full explainability.
+1. **LLM & AI Classification:** Groq-hosted Llama 3 is utilized for raw text processing, structured feature classification (ratings 1-5), claim extraction, and natural language intent classification.
+2. **RAG, Embeddings & Vector Search:** sentence-transformers (all-mpnet-base-v2) generates 768-dim semantic embeddings stored in pgvector. Cosine similarity queries retrieve relevant context chunks from the 25 engineering document corpus for RAG-driven verbatim quote verification.
+3. **Workflow Automation & Recommendations:** Automatically runs the 9-stage asynchronous processing pipeline upon ingest, computing deterministic scores, enforcing safety overrides, and recommending strategic bands (Automate / Augment / Human-Led).
 
 ---
 
@@ -254,66 +257,68 @@ https://github.com/vishsharmaa/PIE-process-intelligence-engine-/blob/main/submis
 
 ---
 
-### Q45. Enterprise Architecture components
+### Q45. Enterprise Architecture - Which components are included?
 **RECOMMENDED SELECTIONS:**
-- [x] REST API Layer (FastAPI with OpenAPI / Swagger documentation)
-- [x] Relational Database Management System (PostgreSQL 16)
-- [x] Vector Database / Extension (pgvector)
-- [x] Asynchronous Background Job Processing (FastAPI BackgroundTasks)
-- [x] Schema Migration Framework (Alembic)
-- [x] Configuration & Secret Management (Pydantic BaseSettings with .env)
-- [x] Automated Testing Suite (Pytest with 45 unit/integration tests)
-- [x] Idempotency & Deduplication Engine (SHA-256 content hashing)
-- [x] Full Audit Logging & Provenance Tracking (ExtractionRun & QueryLog tables)
+- [x] User Interface (React 18 TypeScript Single Page App)
+- [x] Backend API (FastAPI REST service with OpenAPI documentation)
+- [x] Business Logic (Deterministic python scoring logic, safety overrides, YAML rubrics)
+- [x] Database (PostgreSQL 16)
+- [x] Vector Database (pgvector serverless vector extension)
+- [x] Knowledge Layer (25 reference corpus files indexed in vector store)
+- [x] AI Layer (Groq LLM connection, cognitive rating extraction)
+- [x] External APIs (Groq Cloud inference client, Neon serverless DB hook)
+- [x] Monitoring (FastAPI background task runners, job progress tracking)
+- [x] Logging (Uvicorn transaction logs, parameterized QueryLog tables)
+- [x] Caching (On-disk SHA-256 extraction cache to bypass redundant LLM calls)
 
 **WHY:**
-All selected enterprise components exist directly in the repository codebase and are actively exercised in the end-to-end workflow.
+Our implementation leverages a decoupled, multi-layered enterprise architecture. Relational structure is enforced by PostgreSQL while dense vector similarity queries are executed on pgvector. The business logic executes scoring deterministically using modular configurations, and all LLM extractions are cached to ensure speed and cost efficiency.
 
 ---
 
-### Q46. Engineering Quality
+### Q46. Engineering Quality Does your application support?
 **RECOMMENDED SELECTIONS:**
-- [x] 100% Automated Test Suite Passing (45/45 tests passing in Pytest)
-- [x] Clean Separation of Concerns (Presentation, API, Pipeline, Scoring, Storage)
-- [x] Strongly Typed Contracts (Pydantic v2 schemas on all API inputs/outputs)
-- [x] Mathematical Invariant Verification (Continuous score-contribution validation)
-- [x] Comprehensive Error Handling & Exponential Backoff Retries
-- [x] Zero Raw Text-to-SQL Generation (Complete SQL injection immunity)
-- [x] Responsive, Production-Ready UI with Zero Console Errors
-- [x] Automated Database Migrations via Alembic
+- [x] Dynamic data (Evaluator can ingest new processes and trigger pipeline execution on the fly)
+- [x] Multiple users (Concurrently supports multiple API sessions, database pool handlers)
+- [x] Persistent storage (PostgreSQL 16 state storage for jobs, processes, scores, and rankings)
+- [x] Search (Lexical process filter, dense cosine similarity search, NLP SQL Query routing)
+- [x] Audit trail (Verification runs, jobs tracking tables, and extraction history records)
+- [x] Explainable AI (Linear additive factor attribution visualized through waterfall charts)
+- [x] Source citations (Verbatim quote alignment citing exact files, lines, and document publishers)
+- [x] Error handling (JSON mode validators, LLM retry repair loop, Groq 429 exponential backoffs)
+- [x] Configuration (Pydantic BaseSettings, configurable YAML scoring rubrics)
+- [x] Modular architecture (Decoupled extraction pipeline, isolated React page views, repository pattern db layer)
 
 **WHY:**
-The codebase enforces enterprise software engineering best practices, verified by automated unit tests, strict typing, and comprehensive error handling.
+Our codebase adheres to rigorous enterprise engineering standards: 100% test passing rates in Pytest, complete isolation of components, safe input validation to avoid SQL injections, and strict error handling with self-repair mechanics.
 
 ---
 
-### Q47. Demonstration checklist
+### Q47. Can you demonstrate?
 **RECOMMENDED SELECTIONS:**
-- [x] Executive Dashboard with Portfolio Distribution & High-Level Metrics
-- [x] 100-Process Pre-Seeded Industrial Dataset with Global Rankings
-- [x] Deep Process Intelligence View with Score Factor Waterfall
-- [x] Verified Evidence Trust Chain with Verbatim Source Document Citations
-- [x] Dynamic "Process 101" Ingestion with Real-Time 9-Stage Progress Polling
-- [x] Interactive "Ask PIE" Natural Language Querying with Debug QueryPlan
-- [x] Side-by-Side Factor Comparison Tool
-- [x] Interactive Rubric & Methodology Documentation
+- [x] Complete workflow (Ingestion -> extraction -> research RAG -> scoring -> portfolio rank recalculation)
+- [x] Architecture (Decoupled client-side SPA, serverless REST API, vector extension)
+- [x] Source code (Clean, typed TypeScript React frontend and Python FastAPI backend)
+- [x] Database (PostgreSQL database showing 11 tables with migrations)
+- [x] AI pipeline (Llama 3 JSON extraction, intent routing)
+- [x] Research pipeline (pgvector semantic search, lexical RAG matching, verbatim validation)
+- [x] Data model (Cascading foreign key mappings, pgvector vector columns)
+- [x] Business logic (Deterministic YAML-configured scoring overrides)
+- [x] Explainability (Waterfall driver visualization, NLP natural prose queries)
+- [x] Scalability (Bypassing heavy embeds in production, caching, parallel task execution)
 
 **WHY:**
-All listed capabilities are fully functional and verifiable in the live application and demo walkthrough.
+All selected checklist options are fully functional and verifiable in the codebase, the local development environment, and the online cloud deployment.
 
 ---
 
-### Q48. AI coding assistants used
-```
-Antigravity IDE
-```
+### Q48. AI Usage Declaration - Which AI coding assistants were used?
+- [x] Other (Antigravity IDE)
 
 ---
 
-### 49. Approximate percentage of code AI-assisted
-```
-80%
-```
+### Q49. Approximately what percentage of your code was AI-assisted?
+- [x] More than 75%
 
 ---
 
@@ -331,13 +336,14 @@ Core architectural design, invariant mathematical equations, and security bounda
 
 ### Q51. Future role / self assessment
 **RECOMMENDED SELECTIONS:**
-- [x] AI Solutions Architect
-- [x] Enterprise AI Engineer
-- [x] Full-Stack AI Application Developer
-- [x] Lead AI Product Engineer
+- [x] Architecture
+- [x] Software Engineering
+- [x] Enterprise Thinking
+- [x] AI Engineering
+- [x] Problem Solving
 
 **WHY:**
-The architecture, deterministic scoring rigor, and end-to-end deployment demonstrated in PIE reflect the skillset of an enterprise AI Solutions Architect and Lead Engineer capable of designing secure, auditable AI systems.
+Our design patterns (decoupled LLM reasoning, exact-substring semantic grounding, and safety-override band caps) demonstrate the enterprise architecture, AI engineering, and robust problem-solving skills necessary to build auditable corporate applications.
 
 ---
 
