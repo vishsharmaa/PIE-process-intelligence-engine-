@@ -41,9 +41,11 @@
 | Variable | Description | Example / Default | Required |
 |---|---|---|---|
 | `DATABASE_URL` | PostgreSQL connection URI with `postgresql+psycopg2://` driver | `postgresql+psycopg2://pie:pie@db.neon.tech:5432/pie?sslmode=require` | **Yes** |
-| `GROQ_API_KEY` | Groq Cloud API Key for LLM feature extraction & intent routing | `gsk_xxxxxxxxxxxxxxxxxxxxxxxx` | **Yes** |
-| `GROQ_MODEL` | Groq LLM model name | `llama-3.1-8b-instant` | No (defaults to `llama-3.1-8b-instant`) |
-| `EMBEDDING_MODEL` | Local sentence-transformers model | `all-mpnet-base-v2` | No (defaults to `all-mpnet-base-v2`) |
+| `LLM_PROVIDER` | LLM service provider (`qwen` or `groq`) | `qwen` (default: `groq`) | No |
+| `LLM_BASE_URL` | OpenAI-compatible endpoint base URL | `https://ws-h28trj7vdat6f6dv.ap-southeast-1.maas.aliyuncs.com/compatible-mode/v1` | No |
+| `LLM_API_KEY` | LLM provider API Key (Qwen or Groq) | `sk-xxxxxxxxxxxxxxxxxxxxxxxx` | **Yes** |
+| `LLM_MODEL` | LLM model name to execute | `qwen-plus` | No |
+| `EMBEDDING_MODEL` | Local sentence-transformers model | `all-mpnet-base-v2` | No |
 | `EXTRACTION_CACHE_DIR` | Directory for on-disk extraction cache | `.cache/extractions` | No |
 | `CORPUS_DIR` | Directory containing ground-truth markdown reference docs | `app/corpus` | No |
 | `LOG_LEVEL` | Logging verbosity (`DEBUG`, `INFO`, `WARNING`, `ERROR`) | `INFO` | No |

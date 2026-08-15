@@ -31,7 +31,7 @@ def run_extraction(
 
     run = ExtractionRun(
         process_id=process_id,
-        model=settings.groq_model,
+        model=settings.llm_model,
         prompt_version="v1",
         raw_response=result.model_dump_json(),
         created_at=datetime.utcnow(),

@@ -126,13 +126,13 @@ def _parse_extraction(raw: str) -> ExtractionResult:
         raise ValueError(f"Schema validation error: {e}") from e
 
 
-def _call_groq(
+def _call_llm(
     client: OpenAI,
     model: str,
     messages: list[dict],
     timeout: float = 60.0,
 ) -> str:
-    """Single Groq API call with JSON mode. Returns raw string content."""
+    """Single LLM API call with JSON mode. Returns raw string content."""
     response = client.chat.completions.create(
         model=model,
         messages=messages,
@@ -143,16 +143,16 @@ def _call_groq(
     return response.choices[0].message.content or ""
 
 
-def _get_groq_client(settings) -> OpenAI:
-    api_key = settings.groq_api_key
-    if not api_key or api_key in ("your_groq_api_key_here", "dummy_key_for_testing", ""):
+def _get_llm_client(settings) -> OpenAI:
+    api_key = settings.llm_api_key
+    if not api_key or api_key in ("your_groq_api_key_here", "dummy_key_for_testing", "your_llm_api_key_here", ""):
         raise RuntimeError(
-            "GROQ_API_KEY is missing or set to placeholder in backend/.env. "
-            "Please edit backend/.env and set GROQ_API_KEY=gsk_... to run LLM extraction."
+            "LLM API Key is missing or set to placeholder. "
+            "Please configure LLM_API_KEY or GROQ_API_KEY in your environment."
         )
     return OpenAI(
         api_key=api_key,
-        base_url="https://api.groq.com/openai/v1",
+        base_url=settings.llm_base_url,
     )
 
 
@@ -162,12 +162,12 @@ def extract_process(
     normalized_text: str,
 ) -> ExtractionResult:
     """
-    Extract rubric features for a process using Groq.
+    Extract rubric features for a process using the configured LLM.
     Uses on-disk cache; falls back to API call.
     NEVER falls back to any other provider.
     """
     settings = get_settings()
-    model = settings.groq_model
+    model = settings.llm_model
     cache_dir = settings.extraction_cache_dir
 
     key = _cache_key(normalized_text, model, PROMPT_VERSION)
@@ -176,7 +176,7 @@ def extract_process(
         logger.info(f"Extraction cache hit for key {key[:8]}…")
         return cached
 
-    client = _get_groq_client(settings)
+    client = _get_llm_client(settings)
 
     prompt = EXTRACTION_TEMPLATE.format(name=name, description=description)
     messages = [
@@ -191,17 +191,17 @@ def extract_process(
     max_retries = 2
     for attempt in range(max_retries + 1):
         try:
-            raw_response = _call_groq(client, model, messages)
+            raw_response = _call_llm(client, model, messages)
             break
         except RateLimitError as e:
             last_error = e
             if attempt < max_retries:
                 wait = 2 ** (attempt + 2)  # 4s, 8s
-                logger.warning(f"Groq 429 (attempt {attempt+1}), waiting {wait}s…")
+                logger.warning(f"LLM 429 (attempt {attempt+1}), waiting {wait}s…")
                 time.sleep(wait)
             else:
                 raise RuntimeError(
-                    "Groq rate limit exceeded after retries. "
+                    "LLM rate limit exceeded after retries. "
                     "Not falling back to any other provider. "
                     "Wait and retry."
                 ) from e
@@ -209,14 +209,14 @@ def extract_process(
             last_error = e
             if attempt < max_retries:
                 wait = 2 ** (attempt + 1)
-                logger.warning(f"Groq timeout (attempt {attempt+1}), waiting {wait}s…")
+                logger.warning(f"LLM timeout (attempt {attempt+1}), waiting {wait}s…")
                 time.sleep(wait)
             else:
                 raise RuntimeError(
-                    "Groq timeout after retries. Not falling back to any other provider."
+                    "LLM timeout after retries. Not falling back to any other provider."
                 ) from e
         except APIError as e:
-            raise RuntimeError(f"Groq API error: {e}") from e
+            raise RuntimeError(f"LLM API error: {e}") from e
 
     # Try to parse
     try:
@@ -234,7 +234,7 @@ def extract_process(
         )},
     ]
     try:
-        repaired_raw = _call_groq(client, model, repair_messages)
+        repaired_raw = _call_llm(client, model, repair_messages)
         result = _parse_extraction(repaired_raw)
         _save_to_cache(cache_dir, key, result)
         return result
@@ -252,9 +252,9 @@ def classify_intent(question: str) -> dict:
     """
     settings = get_settings()
     try:
-        client = _get_groq_client(settings)
+        client = _get_llm_client(settings)
     except Exception as e:
-        logger.warning(f"Groq client init failed: {e}")
+        logger.warning(f"LLM client init failed: {e}")
         return {"intent": "unmappable"}
 
     system = (
@@ -283,7 +283,7 @@ Respond with JSON:
 
     for attempt in range(3):
         try:
-            raw = _call_groq(client, settings.groq_model, [
+            raw = _call_llm(client, settings.llm_model, [
                 {"role": "system", "content": system},
                 {"role": "user", "content": user_msg},
             ], timeout=30.0)
@@ -311,9 +311,9 @@ def explain_result(question: str, result_json: str) -> str:
     """
     settings = get_settings()
     try:
-        client = _get_groq_client(settings)
+        client = _get_llm_client(settings)
     except Exception as e:
-        logger.warning(f"Groq client init failed: {e}")
+        logger.warning(f"LLM client init failed: {e}")
         return ""
 
     system = (
@@ -325,7 +325,7 @@ def explain_result(question: str, result_json: str) -> str:
 
     try:
         response = client.chat.completions.create(
-            model=settings.groq_model,
+            model=settings.llm_model,
             messages=[
                 {"role": "system", "content": system},
                 {"role": "user", "content": user_msg},
@@ -337,3 +337,4 @@ def explain_result(question: str, result_json: str) -> str:
     except Exception as e:
         logger.warning(f"Explanation generation failed: {e}")
         return ""
+

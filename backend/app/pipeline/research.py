@@ -67,8 +67,8 @@ def run_research(
     """
     settings = get_settings()
     client = OpenAI(
-        api_key=settings.groq_api_key,
-        base_url="https://api.groq.com/openai/v1",
+        api_key=settings.llm_api_key,
+        base_url=settings.llm_base_url,
     )
 
     # Clear existing claims for this process
@@ -104,7 +104,7 @@ def run_research(
 
         found_verified = False
         for chunk in candidate_chunks[:3]:  # try top-3 chunks
-            quote = _ask_for_quote(client, settings.groq_model, claim_text, chunk.text)
+            quote = _ask_for_quote(client, settings.llm_model, claim_text, chunk.text)
             if quote:
                 verified = verify_quote(quote, chunk.text)
                 evidence = Evidence(

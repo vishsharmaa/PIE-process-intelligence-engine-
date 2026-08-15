@@ -267,3 +267,125 @@ def test_quote_verification_still_works():
     assert verify_quote("bearing defect", "the machine has a bearing defect anomaly")
     assert not verify_quote("unrelated text", "the machine has a bearing defect anomaly")
 
+
+# ── LLM Provider Migration Tests ─────────────────────────────────────────────
+
+def test_qwen_config_loading(monkeypatch):
+    from app.config import Settings
+    monkeypatch.setenv("LLM_PROVIDER", "qwen")
+    monkeypatch.setenv("LLM_API_KEY", "test-qwen-key")
+    monkeypatch.setenv("LLM_MODEL", "qwen-plus")
+    
+    settings = Settings()
+    assert settings.llm_provider == "qwen"
+    assert settings.llm_api_key == "test-qwen-key"
+    assert settings.llm_model == "qwen-plus"
+    assert settings.llm_base_url == "https://ws-h28trj7vdat6f6dv.ap-southeast-1.maas.aliyuncs.com/compatible-mode/v1"
+
+def test_groq_switchable(monkeypatch):
+    from app.config import Settings
+    monkeypatch.setenv("LLM_PROVIDER", "groq")
+    monkeypatch.setenv("GROQ_API_KEY", "test-groq-key")
+    monkeypatch.setenv("GROQ_MODEL", "llama-3.1-8b-instant")
+    monkeypatch.delenv("LLM_API_KEY", raising=False)
+    monkeypatch.delenv("LLM_MODEL", raising=False)
+    
+    settings = Settings()
+    assert settings.llm_provider == "groq"
+    assert settings.llm_api_key == "test-groq-key"
+    assert settings.llm_model == "llama-3.1-8b-instant"
+    assert settings.llm_base_url == "https://api.groq.com/openai/v1"
+
+def test_get_llm_client_instantiation(monkeypatch):
+    from app.config import Settings
+    from app.llm.client import _get_llm_client
+    monkeypatch.setenv("LLM_PROVIDER", "qwen")
+    monkeypatch.setenv("LLM_API_KEY", "test-qwen-key")
+    settings = Settings()
+    client = _get_llm_client(settings)
+    assert client.api_key == "test-qwen-key"
+    assert str(client.base_url) == "https://ws-h28trj7vdat6f6dv.ap-southeast-1.maas.aliyuncs.com/compatible-mode/v1/"
+
+def test_extraction_and_json_validation_with_mock(monkeypatch):
+    import json
+    from app.llm.client import extract_process, get_settings
+    
+    class MockCompletions:
+        def create(self, **kwargs):
+            class MockMessage:
+                content = json.dumps({
+                    "data_availability": {"ordinal_value": 5, "rationale": "High availability", "confidence": 0.9},
+                    "process_repeatability": {"ordinal_value": 4, "rationale": "Repetitive steps", "confidence": 0.8},
+                    "rule_clarity": {"ordinal_value": 4, "rationale": "Clear rules", "confidence": 0.85},
+                    "volume_frequency": {"ordinal_value": 5, "rationale": "High volume", "confidence": 0.95},
+                    "digital_maturity": {"ordinal_value": 3, "rationale": "Some systems", "confidence": 0.7},
+                    "error_cost_tolerance": {"ordinal_value": 4, "rationale": "Tolerable", "confidence": 0.8},
+                    "human_judgment_dependency": {"ordinal_value": 2, "rationale": "Low dependency", "confidence": 0.75},
+                    "regulatory_safety_constraint": {"ordinal_value": 1, "rationale": "Unregulated", "confidence": 0.9},
+                    "claims": ["Claim A", "Claim B"]
+                })
+            class MockChoice:
+                message = MockMessage()
+            class MockResponse:
+                choices = [MockChoice()]
+            return MockResponse()
+
+    class MockChat:
+        completions = MockCompletions()
+
+    class MockOpenAI:
+        chat = MockChat()
+        api_key = "dummy"
+        base_url = "dummy"
+
+    monkeypatch.setattr("app.llm.client._get_llm_client", lambda settings: MockOpenAI())
+    monkeypatch.setattr(get_settings(), "extraction_cache_dir", "/tmp/fake_cache_pie_test")
+    
+    res = extract_process("Test Name", "Test Description", "test_hash_unique_123")
+    assert res.data_availability.ordinal_value == 5
+    assert res.claims == ["Claim A", "Claim B"]
+
+def test_research_works_with_mock(monkeypatch):
+    from sqlalchemy import create_engine
+    from sqlalchemy.orm import sessionmaker
+    from app.models import Base, SourceChunk
+    from app.pipeline.research import run_research
+    
+    engine = create_engine("sqlite:///:memory:")
+    Base.metadata.create_all(engine)
+    Session = sessionmaker(bind=engine)
+    db = Session()
+    
+    db.add(SourceChunk(source_id=1, chunk_index=0, text="standard operating procedure for bearing failure prediction"))
+    db.commit()
+
+    class MockCompletions:
+        def create(self, **kwargs):
+            class MockMessage:
+                content = "bearing failure prediction"
+            class MockChoice:
+                message = MockMessage()
+            class MockResponse:
+                choices = [MockChoice()]
+            return MockResponse()
+
+    class MockChat:
+        completions = MockCompletions()
+
+    class MockOpenAI:
+        chat = MockChat()
+        api_key = "dummy"
+        base_url = "dummy"
+
+    monkeypatch.setattr("app.pipeline.research.OpenAI", lambda *args, **kwargs: MockOpenAI())
+    
+    try:
+        run_research(db, process_id=999, claims=["vibration analysis detects bearing failure"])
+        from app.models import Claim
+        saved = db.query(Claim).filter(Claim.process_id == 999).first()
+        assert saved is not None
+        assert saved.supported is True
+    finally:
+        db.close()
+
+
