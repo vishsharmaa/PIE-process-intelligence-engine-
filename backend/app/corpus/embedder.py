@@ -31,6 +31,10 @@ def embed_texts(texts: list[str]) -> list[Optional[list[float]]]:
     Returns list of float lists; None for entries that fail.
     Falls back gracefully if model not available.
     """
+    from app.config import get_settings
+    if not get_settings().embed_corpus:
+        return [None] * len(texts)
+
     model = get_model()
     if model is None:
         return [None] * len(texts)

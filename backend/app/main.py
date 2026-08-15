@@ -26,7 +26,7 @@ async def lifespan(app: FastAPI):
         from app.models import Source
         if db.query(Source).count() == 0:
             corpus_dir = os.path.join(os.path.dirname(__file__), "corpus")
-            load_corpus(db, corpus_dir, embed=True)
+            load_corpus(db, corpus_dir, embed=s.embed_corpus)
         db.close()
     except Exception as e:
         logging.warning(f"Corpus load skipped: {e}")

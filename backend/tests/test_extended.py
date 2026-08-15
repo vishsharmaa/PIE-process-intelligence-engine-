@@ -188,3 +188,82 @@ def test_seed_yaml_no_duplicate_hashes():
         data = yaml.safe_load(f)
     hashes = [compute_hash(normalize_text(p["raw_description"])) for p in data["processes"]]
     assert len(hashes) == len(set(hashes)), "Duplicate content hashes found"
+
+# ── Conditional Embedding / OOM Prevention Tests ─────────────────────────────
+
+def test_embed_corpus_false_does_not_load_transformer(monkeypatch):
+    from app.config import get_settings
+    from app.corpus.embedder import embed_texts
+    
+    monkeypatch.setattr(get_settings(), "embed_corpus", False)
+    
+    import app.corpus.embedder
+    app.corpus.embedder._model = None
+    
+    res = embed_texts(["test text"])
+    assert res == [None]
+    assert app.corpus.embedder._model is None
+
+def test_embed_corpus_true_embeds_normally(monkeypatch):
+    from app.config import get_settings
+    from app.corpus.embedder import embed_texts
+    
+    monkeypatch.setattr(get_settings(), "embed_corpus", True)
+    
+    called = []
+    class MockModel:
+        def encode(self, texts, **kwargs):
+            called.append(True)
+            import numpy as np
+            return np.array([[0.1] * 768])
+            
+    monkeypatch.setattr("app.corpus.embedder.get_model", lambda: MockModel())
+    res = embed_texts(["some text"])
+    assert called == [True]
+    assert len(res) == 1
+    assert len(res[0]) == 768
+
+def test_lexical_search_works_without_embeddings():
+    from sqlalchemy import create_engine
+    from sqlalchemy.orm import sessionmaker
+    from app.models import Base, SourceChunk
+    from app.corpus.loader import lexical_search
+    
+    engine = create_engine("sqlite:///:memory:")
+    Base.metadata.create_all(engine)
+    Session = sessionmaker(bind=engine)
+    db = Session()
+    
+    try:
+        db.add(SourceChunk(source_id=1, chunk_index=0, text="vibration bearing monitoring"))
+        db.add(SourceChunk(source_id=1, chunk_index=1, text="additive manufacturing quality control"))
+        db.commit()
+        
+        results = lexical_search(db, "vibration bearing", top_k=5)
+        assert len(results) == 1
+        assert results[0].text == "vibration bearing monitoring"
+    finally:
+        db.close()
+
+def test_vector_search_falls_back_gracefully_when_no_embeddings():
+    from sqlalchemy import create_engine
+    from sqlalchemy.orm import sessionmaker
+    from app.models import Base
+    from app.corpus.loader import embedding_search
+    
+    engine = create_engine("sqlite:///:memory:")
+    Base.metadata.create_all(engine)
+    Session = sessionmaker(bind=engine)
+    db = Session()
+    
+    try:
+        results = embedding_search(db, [0.1] * 768, top_k=5)
+        assert results == []
+    finally:
+        db.close()
+
+def test_quote_verification_still_works():
+    from app.corpus.verify_quote import verify_quote
+    assert verify_quote("bearing defect", "the machine has a bearing defect anomaly")
+    assert not verify_quote("unrelated text", "the machine has a bearing defect anomaly")
+

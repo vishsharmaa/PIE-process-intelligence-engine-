@@ -12,6 +12,7 @@ class Settings(BaseSettings):
     extraction_cache_dir: str = ".cache/extractions"
     corpus_dir: str = "app/corpus"
     embedding_model: str = "all-mpnet-base-v2"
+    embed_corpus: bool = True
     log_level: str = "INFO"
 
 
