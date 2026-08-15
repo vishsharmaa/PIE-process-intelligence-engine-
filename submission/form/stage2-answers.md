@@ -305,26 +305,20 @@ All listed capabilities are fully functional and verifiable in the live applicat
 
 ### Q48. AI coding assistants used
 ```
-[USER CONFIRMATION REQUIRED]
-Recommended Selection: Claude 3.5 Sonnet / Claude 3.7 Sonnet / Cursor / Antigravity IDE
-(Please select or state the exact AI tools you utilized during the challenge).
+Antigravity IDE
 ```
 
 ---
 
-### Q49. Approximate percentage of code AI-assisted
+### 49. Approximate percentage of code AI-assisted
 ```
-[USER CONFIRMATION REQUIRED]
-Recommended Selection: ~70%–85% (or your actual estimated percentage).
-Note: High percentage of AI assistance demonstrates mastery of modern agentic engineering workflows when backed by rigorous architectural design and 100% test pass rates.
+80%
 ```
 
 ---
 
 ### Q50. Which parts were primarily AI-assisted?
 ```
-[USER CONFIRMATION REQUIRED]
-Recommended Detail:
 1. Boilerplate generation for Pydantic schemas, SQLAlchemy models, and FastAPI routers.
 2. Generation of the 100 diverse industrial process seed descriptions in YAML.
 3. Drafting the 25 domain-specific engineering corpus markdown documents.
